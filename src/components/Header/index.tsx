@@ -41,7 +41,7 @@ export default function Header() {
               ))}
             </ul>
           </S.NavbarLinks>
-          <Box>Botão2</Box>
+          <Box>Botão</Box>
         </Box>
       </Container>
     </S.Header>
