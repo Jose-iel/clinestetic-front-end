@@ -16,13 +16,18 @@ module.exports = (plop) => {
       },
       {
         type: 'add',
-        path: '../src/components/{{pascalCase name}}/{{lowerCase name}}.css',
-        templateFile: 'templates/styles.css.hbs'
+        path: '../src/components/{{pascalCase name}}/style.ts',
+        templateFile: 'templates/style.ts.hbs'
       },
       {
         type: 'add',
-        path: '../src/components/{{pascalCase name}}/test.spec.tsx',
+        path: '../src/components/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
         templateFile: 'templates/test.spec.tsx.hbs'
+      },
+      {
+        type: 'add',
+        path: '../src/components/{{pascalCase name}}/interfaces.ts',
+        templateFile: 'templates/interfaces.ts.hbs'
       }
     ]
   });
