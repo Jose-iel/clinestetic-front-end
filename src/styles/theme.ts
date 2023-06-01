@@ -4,9 +4,13 @@ type DefaultProps = {
   [key: number]: string;
 };
 
+type AplicationProps = {
+  [key: string]: string;
+};
+
 export interface Theme extends DefaultTheme {
   colors?: {
-    primary: string;
+    aplicationColors: AplicationProps;
     light: DefaultProps;
     typography: DefaultProps;
   };
@@ -16,7 +20,10 @@ export interface Theme extends DefaultTheme {
 
 export const theme: Theme = {
   colors: {
-    primary: '#ff1c89',
+    aplicationColors: {
+      primary: '#ff1c89',
+      red: '#7C0025'
+    },
     light: {
       100: '#ffffff',
       200: '#f2f2f2',

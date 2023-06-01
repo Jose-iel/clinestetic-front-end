@@ -27,7 +27,7 @@ export default function Header() {
     <S.Header>
       <Container>
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Box color={colors?.primary}>
+          <Box color={colors?.aplicationColors['primary']}>
             <Link id="brand" href="/">
               Clinestetic
             </Link>
