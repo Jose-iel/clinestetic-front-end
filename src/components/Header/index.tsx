@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Box, Container } from 'styles/layout';
 import { useTheme } from 'styled-components';
-import { Theme } from 'pages/_app';
+import { Theme } from 'styles/theme';
 import * as S from './style';
 
 const menus = [
