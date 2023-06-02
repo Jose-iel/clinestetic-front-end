@@ -17,9 +17,7 @@ export const Footer = styled.div`
   border-bottom-color: ${({ theme }) => theme.colors.light[200]};
 `;
 
-export const Title = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes[24]};
-  color: ${({ theme }) => theme.colors.light[100]};
+export const Logo = styled.img`
   margin-bottom: ${({ theme }) => theme.space[16]};
 `;
 
@@ -27,6 +25,10 @@ export const SubTitle = styled.p`
   font-size: ${({ theme }) => theme.fontSizes[12]};
   color: ${({ theme }) => theme.colors.light[100]};
   margin-bottom: ${({ theme }) => theme.space[8]};
+`;
+
+export const Icon = styled.img`
+  margin-right: ${({ theme }) => theme.space[16]};
 `;
 
 export const MenuTitle = styled.p`

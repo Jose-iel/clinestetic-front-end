@@ -2,6 +2,41 @@ import * as S from './style';
 import { Box, Container } from 'styles/layout';
 
 export default function Footer() {
+  const today = new Date();
+  const year = today.getFullYear();
+
+  const footerData = {
+    info: [
+      { name: 'CNPJ', value: '00000000000' },
+      { name: 'Endereço', value: 'Rua teste, 230, SP' }
+    ],
+    social: [
+      'img/footer/facebook.svg',
+      'img/footer/instagram.svg',
+      'img/footer/twitter.svg',
+      'img/footer/youtube.svg'
+    ],
+    links: [
+      { name: 'Home', url: '#' },
+      { name: 'Tratamentos', url: '#' },
+      { name: 'FAQ', url: '#' },
+      { name: 'Sobre', url: '#' },
+      { name: 'Contato', url: '#' }
+    ],
+    contact: [
+      '19 9932-1234',
+      'contato@clinestetic.com',
+      'Rua Marte, 100',
+      'Terra - Sistema Solar',
+      'CEP 120444-224'
+    ],
+    bottomLinks: [
+      { name: 'Home', url: '#' },
+      { name: 'Segurança', url: '#' },
+      { name: 'Termos', url: '#' }
+    ]
+  };
+
   return (
     <>
       <S.Footer>
@@ -12,14 +47,17 @@ export default function Footer() {
           alignItems={['center', 'flex-start']}
         >
           <Box marginBottom={['30px', '0px']}>
-            <S.Title>CLINESTETIC</S.Title>
-            <S.SubTitle>
-              <b>CNPJ:</b> 00000000000
-            </S.SubTitle>
-            <S.SubTitle>
-              <b>Endereço:</b> Rua testa, 230, SP
-            </S.SubTitle>
-            <Box></Box>
+            <S.Logo src="img/footer/logo-footer.svg" alt="logo" />
+            {footerData.info.map((element, index) => (
+              <S.SubTitle key={index}>
+                <b>{element.name}:</b> {element.value}
+              </S.SubTitle>
+            ))}
+            <Box marginTop="30px">
+              {footerData.social.map((element, index) => (
+                <S.Icon key={index} src={element} />
+              ))}
+            </Box>
           </Box>
           <Box display="flex">
             <Box
@@ -30,21 +68,19 @@ export default function Footer() {
               <S.MenuTitle>
                 <b>Links</b>
               </S.MenuTitle>
-              <S.Links>Home</S.Links>
-              <S.Links>Tratamentos</S.Links>
-              <S.Links>FAQ</S.Links>
-              <S.Links>Sobre</S.Links>
-              <S.Links>Contato</S.Links>
+              {footerData.links.map((element, index) => (
+                <S.Links key={index} href={element.url}>
+                  {element.name}
+                </S.Links>
+              ))}
             </Box>
             <Box display="flex" flexDirection="column">
               <S.MenuTitle>
                 <b>Contato</b>
               </S.MenuTitle>
-              <S.SubTitle>19 9932-1234</S.SubTitle>
-              <S.SubTitle>contato@clinestetic.com</S.SubTitle>
-              <S.SubTitle>Rua Marte, 100</S.SubTitle>
-              <S.SubTitle>Terra - Sistema Solar</S.SubTitle>
-              <S.SubTitle>CEP 120444-224</S.SubTitle>
+              {footerData.contact.map((element, index) => (
+                <S.SubTitle key={index}>{element}</S.SubTitle>
+              ))}
             </Box>
           </Box>
         </Container>
@@ -61,17 +97,13 @@ export default function Footer() {
             display="flex"
             justifyContent="space-between"
           >
-            <S.BottomLinks>
-              <b>Privacidade</b>
-            </S.BottomLinks>
-            <S.BottomLinks>
-              <b>Segurança</b>
-            </S.BottomLinks>
-            <S.BottomLinks>
-              <b>Termos</b>
-            </S.BottomLinks>
+            {footerData.bottomLinks.map((element, index) => (
+              <S.BottomLinks key={index} href={element.url}>
+                <b>{element.name}</b>
+              </S.BottomLinks>
+            ))}
           </Box>
-          <S.Copy>&copy; 2022 All rights reserved.</S.Copy>
+          <S.Copy>&copy; {year} All rights reserved.</S.Copy>
         </Container>
       </S.BottomFooter>
     </>
