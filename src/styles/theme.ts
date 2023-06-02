@@ -12,6 +12,7 @@ export interface Theme extends DefaultTheme {
   colors?: {
     aplicationColors: AplicationProps;
     light: DefaultProps;
+    dark: DefaultProps;
     typography: DefaultProps;
   };
   space?: DefaultProps;
@@ -35,6 +36,9 @@ export const theme: Theme = {
       800: '#a6a6a6',
       900: '#999999',
       150: '#e9ecef'
+    },
+    dark: {
+      400: '#383838'
     },
     typography: {
       100: '#f8fafc',

@@ -5,17 +5,20 @@ import {
   space,
   layout,
   color,
+  grid,
   FlexboxProps,
   LayoutProps,
   PositionProps,
-  SpaceProps
+  SpaceProps,
+  GridProps
 } from 'styled-system';
 
 interface BoxProps
   extends LayoutProps,
     SpaceProps,
     FlexboxProps,
-    PositionProps {}
+    PositionProps,
+    GridProps {}
 
 export const Box = styled.div<BoxProps>`
   ${flexbox}
@@ -23,10 +26,11 @@ export const Box = styled.div<BoxProps>`
   ${space}
   ${position}
   ${color}
+  ${grid}
 `;
 
 export const Container = styled.div<BoxProps>`
-  max-width: 1200px;
+  max-width: 1170px;
   margin: 0 auto;
   padding: 0 1rem;
 

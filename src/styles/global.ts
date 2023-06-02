@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+  body, input, button {
     font-family: 'Roboto', sans-serif;
   }
 
