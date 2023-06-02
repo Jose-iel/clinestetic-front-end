@@ -1,14 +1,15 @@
 import * as S from './style';
-import { Box } from 'styles/layout';
+import { Box, Container } from 'styles/layout';
 
 export default function Footer() {
   return (
     <>
       <S.Footer>
-        <Box
+        <Container
           display="flex"
-          justifyContent="space-between"
           flexDirection={['column', 'row']}
+          justifyContent="space-between"
+          alignItems={['center', 'flex-start']}
         >
           <Box marginBottom={['30px', '0px']}>
             <S.Title>CLINESTETIC</S.Title>
@@ -46,21 +47,32 @@ export default function Footer() {
               <S.SubTitle>CEP 120444-224</S.SubTitle>
             </Box>
           </Box>
-        </Box>
+        </Container>
       </S.Footer>
       <S.BottomFooter>
-        <Box>
-          <S.BottomLinks>
-            <b>Privacidade</b>
-          </S.BottomLinks>
-          <S.BottomLinks>
-            <b>Segurança</b>
-          </S.BottomLinks>
-          <S.BottomLinks>
-            <b>Termos</b>
-          </S.BottomLinks>
-        </Box>
-        <S.Copy>&copy; 2022 All rights reserved.</S.Copy>
+        <Container
+          display="flex"
+          flexDirection={['column', 'row']}
+          justifyContent="space-between"
+          alignItems={['center', 'flex-start']}
+        >
+          <Box
+            width={['60%', '20%']}
+            display="flex"
+            justifyContent="space-between"
+          >
+            <S.BottomLinks>
+              <b>Privacidade</b>
+            </S.BottomLinks>
+            <S.BottomLinks>
+              <b>Segurança</b>
+            </S.BottomLinks>
+            <S.BottomLinks>
+              <b>Termos</b>
+            </S.BottomLinks>
+          </Box>
+          <S.Copy>&copy; 2022 All rights reserved.</S.Copy>
+        </Container>
       </S.BottomFooter>
     </>
   );

@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const Footer = styled.div`
   @media only screen and (max-width: 600px) {
-    padding: 24px 55px 34px 55px;
+    padding: 24px 0 34px 0;
   }
 
   background-color: ${({ theme }) => theme.colors.aplicationColors['primary']};
-  padding: 44px 135px 64px 135px;
+  padding: 44px 0 64px 0;
 
   border-top-width: 1px;
   border-top-style: solid;
@@ -50,15 +50,12 @@ export const SocialIcon = styled.img``;
 
 export const BottomFooter = styled.div`
   @media only screen and (max-width: 600px) {
-    padding: 24px 55px 34px 55px;
-    flex-direction: column;
+    padding: 24px 0 34px 0;
   }
 
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.aplicationColors['primary']};
-  padding: 32px 135px 32px 135px;
+  padding: 32px 0 32px 0;
 `;
 
 export const Copy = styled.p`
@@ -71,7 +68,6 @@ export const BottomLinks = styled.a`
   font-size: ${({ theme }) => theme.fontSizes[12]};
   color: ${({ theme }) => theme.colors.light[100]};
   margin-bottom: ${({ theme }) => theme.space[8]};
-  margin-right: ${({ theme }) => theme.space[20]};
   cursor: pointer;
 
   :hover {
