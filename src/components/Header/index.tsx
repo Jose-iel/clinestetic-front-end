@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Box, Container } from 'styles/layout';
 import { useTheme } from 'styled-components';
-import { Theme } from 'pages/_app';
+import { Theme } from 'styles/theme';
 import * as S from './style';
 
 const menus = [
@@ -27,7 +27,7 @@ export default function Header() {
     <S.Header>
       <Container>
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Box color={colors?.primary}>
+          <Box color={colors?.aplicationColors['primary']}>
             <Link id="brand" href="/">
               Clinestetic
             </Link>
@@ -41,7 +41,7 @@ export default function Header() {
               ))}
             </ul>
           </S.NavbarLinks>
-          <Box>Botão2</Box>
+          <Box>Botão</Box>
         </Box>
       </Container>
     </S.Header>
