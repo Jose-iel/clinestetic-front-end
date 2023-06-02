@@ -5,7 +5,7 @@ export const Footer = styled.div`
     padding: 24px 0 34px 0;
   }
 
-  background-color: ${({ theme }) => theme.colors.aplicationColors['primary']};
+  background-color: ${({ theme }) => theme.colors.main['primary']};
   padding: 44px 0 64px 0;
 
   border-top-width: 1px;
@@ -33,7 +33,7 @@ export const Icon = styled.img`
 
 export const MenuTitle = styled.p`
   font-size: ${({ theme }) => theme.fontSizes[16]};
-  color: ${({ theme }) => theme.colors.aplicationColors['red']};
+  color: ${({ theme }) => theme.colors.main['accent']};
   margin-bottom: ${({ theme }) => theme.space[8]};
 `;
 
@@ -44,7 +44,7 @@ export const Links = styled.a`
   cursor: pointer;
 
   :hover {
-    color: ${({ theme }) => theme.colors.aplicationColors['red']};
+    color: ${({ theme }) => theme.colors.main['accent']};
   }
 `;
 
@@ -56,7 +56,7 @@ export const BottomFooter = styled.div`
   }
 
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.colors.aplicationColors['primary']};
+  background-color: ${({ theme }) => theme.colors.main['primary']};
   padding: 32px 0 32px 0;
 `;
 
@@ -73,6 +73,6 @@ export const BottomLinks = styled.a`
   cursor: pointer;
 
   :hover {
-    color: ${({ theme }) => theme.colors.aplicationColors['red']};
+    color: ${({ theme }) => theme.colors.main['accent']};
   }
 `;

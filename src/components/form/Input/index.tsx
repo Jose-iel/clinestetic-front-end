@@ -20,6 +20,7 @@ export default function Input({ options }: IInput) {
       )}
       <S.Input
         id={options?.id}
+        name={options?.name}
         placeholder={options?.placeholder}
         inputSize={options?.iconLeft ? '1rem 2rem 1rem 3rem' : options?.size}
         rounded
