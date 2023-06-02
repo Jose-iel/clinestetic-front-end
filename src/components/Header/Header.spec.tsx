@@ -1,16 +1,17 @@
 import { render, screen } from '@testing-library/react';
-import Header from '.';
+import { headerMockData } from '__mocks__';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'styles/theme';
+import Header from '.';
 
 describe('Header', () => {
-  it('should render Header componet', () => {
+  it('should render Header component', () => {
     render(
       <ThemeProvider theme={theme}>
-        <Header />
+        <Header cms={headerMockData} />
       </ThemeProvider>
     );
 
-    expect(screen.getByTestId('header-component')).toBeInTheDocument();
+    expect(screen.getByTestId('header')).toBeInTheDocument();
   });
 });

@@ -6,8 +6,8 @@ import {
 import styled from 'styled-components';
 
 export const Header = styled.div`
-  color: ${({ theme }) => theme?.colors?.typography[700]};
-  padding: ${({ theme }) => theme?.space[20]} 0;
+  color: ${({ theme }) => theme.colors.typography[700]};
+  padding: ${({ theme }) => theme.space[20]} 0;
   #brand {
     font-size: ${({ theme }) => theme.fontSizes[32]};
     font-weight: 800;
@@ -16,7 +16,7 @@ export const Header = styled.div`
 
 export const NavbarLinks = styled.nav`
   ul {
-    gap: ${({ theme }) => theme?.space[4]};
+    gap: ${({ theme }) => theme.space[4]};
     display: flex;
     a {
       display: flex;
@@ -28,7 +28,7 @@ export const NavbarLinks = styled.nav`
       border-radius: 4px;
       transition: 0.3s all;
       &:hover {
-        background-color: ${({ theme }) => theme?.colors?.light[150]};
+        background-color: ${({ theme }) => theme.colors.light[150]};
       }
     }
   }
@@ -40,13 +40,13 @@ export const HeaderButton = styled(Button)`
   justify-content: center;
   align-items: center;
   &.icon-button {
-    background: ${({ theme }) => theme?.colors?.dark[400]};
+    background: ${({ theme }) => theme.colors.dark[400]};
     padding: 0;
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 100%;
     &.mobile {
-      background: ${({ theme }) => theme?.colors?.primary};
+      background: ${({ theme }) => theme.colors.main.primary};
       width: 3rem;
       height: 3rem;
     }
@@ -55,10 +55,10 @@ export const HeaderButton = styled(Button)`
 
 export const HeaderDesktop = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  width: 82%;
+  width: 80%;
   @media (max-width: 992px) {
     display: none;
   }
@@ -75,7 +75,7 @@ export const Content = styled(DropdownMenuContent)`
   margin-top: 0.5rem;
   padding: 1rem;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme?.colors?.light[100]};
+  background-color: ${({ theme }) => theme.colors.light[100]};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 `;
 
@@ -83,9 +83,9 @@ export const Item = styled(DropdownMenuItem)`
   padding: 0.5rem;
   color: ${({ theme }) => theme.colors.typography[700]};
   &:hover {
-    background-color: ${({ theme }) => theme?.colors?.light[150]};
+    background-color: ${({ theme }) => theme.colors.light[150]};
     border-radius: 4px;
-    color: ${({ theme }) => theme?.colors?.primary};
+    color: ${({ theme }) => theme.colors.main.primary};
   }
   a {
     display: flex;
