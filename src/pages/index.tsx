@@ -1,6 +1,5 @@
 import { getCmsData } from 'utilities/cms';
 import { Container } from 'styles/layout';
-import { ICmsData } from './interfaces';
 
 export async function getServerSideProps() {
   const cms = await getCmsData();
@@ -9,6 +8,6 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Home({ cms }: ICmsData) {
+export default function Home() {
   return <Container>Hello</Container>;
 }
