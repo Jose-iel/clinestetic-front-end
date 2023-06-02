@@ -6,14 +6,14 @@ const variantStyles = (theme: Theme, variant = 'primary') =>
   ({
     primary: css`
       color: ${theme?.colors?.light[300]};
-      background: ${theme.colors && theme.colors.primary};
+      background: ${theme.colors && theme.colors.aplicationColors['primary']};
       border-color: currentColor;
     `,
 
     outlined: css`
-      color: ${theme?.colors?.primary};
+      color: ${theme?.colors?.aplicationColors['primary']};
       background: ${theme?.colors?.light[100]};
-      border-color: ${theme?.colors?.primary};
+      border-color: ${theme?.colors?.aplicationColors['primary']};
     `
   }[variant]);
 
