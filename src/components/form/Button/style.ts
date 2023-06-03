@@ -1,34 +1,57 @@
-import styled, { css } from 'styled-components';
-import { Theme } from 'styles/theme';
-import { IStyledButton } from './interfaces';
+import styled from 'styled-components';
+import { theme } from 'styles/theme';
 
-const variantStyles = (theme: Theme, variant = 'primary') =>
-  ({
-    primary: css`
-      color: ${theme?.colors?.light[300]};
-      background: ${theme.colors && theme.colors.main.primary};
-      border-color: currentColor;
-    `,
+const { radii, colors } = theme;
 
-    outlined: css`
-      color: ${theme?.colors?.main.primary};
-      background: ${theme?.colors?.light[100]};
-      border-color: ${theme?.colors?.main.primary};
-    `
-  }[variant]);
+export const Button = styled.button<{
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary';
+  width?: string;
+  height?: string;
+  rounded?: string;
+  hasIcon: boolean;
+}>`
+  width: ${(props) => props?.width};
+  height: ${(props) => props?.height};
+  transition: 0.3s;
+  border-radius: ${(props) =>
+    props?.rounded ? `${props?.rounded}` : `${radii && radii[52]}`};
 
-export const Button = styled.button<IStyledButton>`
-  cursor: pointer;
-  transition: all 0.3s;
-  border: 1px solid;
-  font-size: ${({ theme }) => theme.fontSizes['16']};
-  border-radius: ${(props) => (props?.rounded ? '20rem' : '4px')};
-  padding: ${(props) =>
-    props.size ? `${props.size.y}rem ${props?.size.x}rem` : `1rem 3rem`};
+  ${(props) => {
+    switch (props?.variant) {
+      case 'primary':
+        return {
+          background: `${colors?.main.primary.default}`,
+          '&:hover': {
+            background: `${colors?.main.primary.hover}`
+          }
+        };
+      case 'secondary':
+        return {
+          background: `${colors?.dark[400]}`,
+          '&:hover': {
+            background: `${colors?.dark[900]}`
+          }
+        };
+    }
+  }}
 
-  ${({ theme, variant }) => variantStyles(theme, variant)};
+  ${(props) => {
+    switch (props?.size) {
+      case 'md':
+        return {
+          color: `${colors?.light[100]}`,
+          padding: '1rem',
+          fontWeight: 500
+        };
+    }
+  }};
 
-  &:active {
-    transform: scale(0.9);
-  }
+  ${(props) =>
+    props?.hasIcon && {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 'inherit'
+    }}
 `;

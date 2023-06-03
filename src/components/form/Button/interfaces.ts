@@ -1,16 +1,11 @@
-import { ReactNode } from 'react';
-
 export interface IButton {
-  children: ReactNode;
-  variant?: 'primary' | 'outlined';
-  rounded?: boolean;
-}
-
-export interface IStyledButton {
-  variant?: 'primary' | 'outlined';
-  size?: {
-    y: number;
-    x: number;
+  children: React.ReactNode;
+  options?: {
+    variant?: 'primary' | 'secondary';
+    size?: 'sm' | 'md' | 'lg';
+    width?: string;
+    height?: string;
+    rounded?: string;
   };
-  rounded?: boolean;
+  hasIcon: boolean;
 }
