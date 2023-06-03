@@ -7,7 +7,10 @@ type DefaultProps = {
 export interface Theme extends DefaultTheme {
   colors?: {
     main: {
-      primary: string;
+      primary: {
+        default: string;
+        hover: string;
+      };
       accent: string;
     };
     light: DefaultProps;
@@ -16,12 +19,16 @@ export interface Theme extends DefaultTheme {
   };
   space?: DefaultProps;
   fontSizes?: DefaultProps;
+  radii?: DefaultProps;
 }
 
 export const theme: Theme = {
   colors: {
     main: {
-      primary: '#ff1c89',
+      primary: {
+        default: '#ff1c89',
+        hover: '#C3188B'
+      },
       accent: '#7C0025'
     },
     light: {
@@ -37,7 +44,8 @@ export const theme: Theme = {
       150: '#e9ecef'
     },
     dark: {
-      400: '#383838'
+      400: '#383838',
+      900: '#212121'
     },
     typography: {
       100: '#f8fafc',
@@ -49,6 +57,15 @@ export const theme: Theme = {
       700: '#576b7c',
       800: '#293f4e'
     }
+  },
+  radii: {
+    4: '0.25rem',
+    8: '0.5rem',
+    12: '0.75rem',
+    16: '1rem',
+    20: '1.25rem',
+    24: '1.5rem',
+    52: '3.25rem'
   },
   space: {
     4: '0.25rem',
