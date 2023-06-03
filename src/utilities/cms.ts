@@ -1,5 +1,5 @@
-export async function getCmsData() {
-  const request = await fetch('http://localhost:3000/api/cms');
-  const data = await request.json();
+export default async function fetcher(url: string) {
+  const response = await fetch(url);
+  const data = await response.json();
   return data;
 }

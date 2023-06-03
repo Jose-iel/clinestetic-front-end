@@ -1,54 +1,38 @@
-import { Button } from 'components/form/Button/style';
 import {
   DropdownMenuContent,
   DropdownMenuItem
 } from '@radix-ui/react-dropdown-menu';
 import styled from 'styled-components';
+import { theme } from 'styles/theme';
+
+const { radii, space, colors, fontSizes } = theme;
 
 export const Header = styled.div`
-  color: ${({ theme }) => theme.colors.typography[700]};
-  padding: ${({ theme }) => theme.space[20]} 0;
+  color: ${colors?.typography[700]};
+  padding: ${space && space[20]} 0;
   #brand {
-    font-size: ${({ theme }) => theme.fontSizes[32]};
+    font-size: ${fontSizes && fontSizes[32]};
     font-weight: 800;
   }
 `;
 
 export const NavbarLinks = styled.nav`
+  display: flex;
+  justify-content: center;
+  flex: 1 0 40%;
   ul {
-    gap: ${({ theme }) => theme.space[4]};
+    gap: ${space && space[4]};
     display: flex;
     a {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      padding: ${({ theme }) => {
-        return `${theme?.space[8]} ${theme?.space[12]}`;
-      }};
-      border-radius: 4px;
+      padding: ${`${space && space[8]} ${space && space[12]}`};
+      border-radius: ${radii && radii[4]};
       transition: 0.3s all;
       &:hover {
-        background-color: ${({ theme }) => theme.colors.light[150]};
+        background-color: ${colors?.light[150]};
       }
-    }
-  }
-`;
-
-export const HeaderButton = styled(Button)`
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &.icon-button {
-    background: ${({ theme }) => theme.colors.dark[400]};
-    padding: 0;
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 100%;
-    &.mobile {
-      background: ${({ theme }) => theme.colors.main.primary};
-      width: 3rem;
-      height: 3rem;
     }
   }
 `;
@@ -75,17 +59,17 @@ export const Content = styled(DropdownMenuContent)`
   margin-top: 0.5rem;
   padding: 1rem;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.light[100]};
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: ${colors?.light[100]};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
 `;
 
 export const Item = styled(DropdownMenuItem)`
   padding: 0.5rem;
-  color: ${({ theme }) => theme.colors.typography[700]};
+  color: ${colors?.typography[700]};
   &:hover {
-    background-color: ${({ theme }) => theme.colors.light[150]};
+    background-color: ${colors?.light[150]};
     border-radius: 4px;
-    color: ${({ theme }) => theme.colors.main.primary};
+    color: ${colors?.main.primary.default};
   }
   a {
     display: flex;
