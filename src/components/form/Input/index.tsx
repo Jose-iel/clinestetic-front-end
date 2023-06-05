@@ -24,6 +24,7 @@ export default function Input({ options }: IInput) {
         inputSize={options?.iconLeft ? '1rem 2rem 1rem 3rem' : options?.size}
         rounded={options.isRadius}
         width="100%"
+        variant={options.variant}
       />
     </Box>
   );

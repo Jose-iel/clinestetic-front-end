@@ -28,6 +28,7 @@ export default function Header() {
           <S.HeaderDesktop>
             <Input
               options={{
+                variant: 'primary',
                 id: 'search',
                 name: 'search',
                 placeholder: 'Encontre o tratamento',

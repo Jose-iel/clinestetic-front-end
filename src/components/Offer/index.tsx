@@ -1,10 +1,8 @@
 import * as S from './style';
 import { Container, Box } from 'styles/layout';
 
-import { AiFillDollarCircle } from 'react-icons/ai';
-
 import Input from 'components/form/Input';
-// import Button from 'components/form/Button';
+import Button from 'components/form/Button';
 
 export default function Offer() {
   return (
@@ -14,26 +12,28 @@ export default function Offer() {
         flexDirection={['column', 'row']}
         alignItems="center"
       >
-        <AiFillDollarCircle size={176} color="#383838" />
-        <Box marginLeft="32px" marginRight="103px">
-          <S.SmallText>CADASTRE-SE</S.SmallText>
-          <S.BigText>Receba</S.BigText>
-          <S.BigText>as ofertas</S.BigText>
-        </Box>
+        <S.InfoBox>
+          <S.Icon src="img/offer/offer-icon.svg" alt="icon" />
+          <Box marginRight={['20px', '103px']} marginBottom={['20px', '0px']}>
+            <S.SmallText>CADASTRE-SE</S.SmallText>
+            <S.BigText>Receba</S.BigText>
+            <S.BigText>as ofertas</S.BigText>
+          </Box>
+        </S.InfoBox>
         <S.ContactBox>
           <Input
             options={{
+              variant: 'secondary',
               id: 'offer',
               name: 'offer',
               placeholder: 'E-mail',
               boxWidth: '100%',
               isRadius: false
             }}
-            // <Button
-            //   variant={'primary'} rounded={true}
-            // >
-            // </Button>
           />
+          <Button variant={'primary'} rounded={true}>
+            Enviar
+          </Button>
         </S.ContactBox>
       </Container>
     </S.Offer>

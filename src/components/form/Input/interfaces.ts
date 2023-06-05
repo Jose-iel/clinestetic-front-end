@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 export interface IInput {
   options: {
+    variant?: 'primary' | 'secondary';
     id: string;
     name: string;
     label?: string;

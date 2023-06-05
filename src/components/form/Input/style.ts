@@ -9,6 +9,11 @@ const variantStyles = (theme: Theme, variant = 'primary') =>
       color: ${theme?.colors?.dark[400]};
       background: ${theme?.colors?.light[200]};
       border-color: ${theme?.colors?.light[200]};
+    `,
+    secondary: css`
+      color: ${theme?.colors?.dark[400]};
+      background: ${theme?.colors?.light[300]};
+      border-color: ${theme?.colors?.light[800]};
     `
   }[variant]);
 
