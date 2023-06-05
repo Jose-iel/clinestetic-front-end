@@ -1,6 +1,8 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import * as S from './style';
+import handlerScrollbar from 'utilities/scrollbar';
+
 import { IDropdown } from './interfaces';
+import * as S from './style';
 
 export default function Dropdown({
   action,
@@ -9,14 +11,16 @@ export default function Dropdown({
   hasChild
 }: IDropdown) {
   return (
-    <DropdownMenu.Root>
+    <DropdownMenu.Root onOpenChange={handlerScrollbar}>
       <S.Trigger
         className={classes?.trigger}
         {...(hasChild && { asChild: true })}
       >
         {action}
       </S.Trigger>
-      <DropdownMenu.Portal>{children}</DropdownMenu.Portal>
+      <DropdownMenu.Portal className="no-scrollbar">
+        {children}
+      </DropdownMenu.Portal>
     </DropdownMenu.Root>
   );
 }
