@@ -9,6 +9,8 @@ export interface IInput {
     iconLeft?: ReactNode;
     iconRight?: ReactNode;
     size?: string;
+    boxWidth?: string;
+    isRadius?: boolean;
   };
 }
 

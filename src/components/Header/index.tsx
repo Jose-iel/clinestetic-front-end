@@ -31,6 +31,7 @@ export default function Header() {
                 id: 'search',
                 name: 'search',
                 placeholder: 'Encontre o tratamento',
+                isRadius: true,
                 iconRight: (
                   <AiOutlineSearch size={18} color={colors?.dark[400]} />
                 )
