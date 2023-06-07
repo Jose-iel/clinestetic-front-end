@@ -5,6 +5,7 @@ import GlobalStyle from 'styles/global';
 import { theme } from 'styles/theme';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
+import Offer from 'components/Offer';
 import DataContext from 'contexts/data.context';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -23,6 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <GlobalStyle />
         <Header />
         <Component {...pageProps} />
+        <Offer />
         <Footer />
       </ThemeProvider>
     </DataContext.Provider>

@@ -38,13 +38,15 @@ export default function Header() {
           <S.HeaderDesktop>
             <FieldCustom
               options={{
+                variant: 'primary',
                 id: 'search',
                 name: 'search',
                 placeholder: 'Encontre o tratamento',
+                rounded: true,
+                iconPosition: 'right',
                 iconElement: (
                   <AiOutlineSearch size={18} color={colors?.dark[400]} />
-                ),
-                rounded: true
+                )
               }}
             />
             <S.NavbarLinks>
