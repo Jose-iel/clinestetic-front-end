@@ -30,7 +30,7 @@ export const Box = styled.div<BoxProps>`
 `;
 
 export const Container = styled.div<BoxProps>`
-  max-width: 1170px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 1rem;
 

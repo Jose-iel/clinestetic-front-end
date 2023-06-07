@@ -31,7 +31,13 @@ export default function Offer() {
               isRadius: false
             }}
           />
-          <Button variant={'primary'} rounded={true}>
+          <Button
+            options={{
+              variant: 'primary',
+              width: '10rem'
+            }}
+            hasIcon={false}
+          >
             Enviar
           </Button>
         </S.ContactBox>

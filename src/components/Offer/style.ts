@@ -5,7 +5,7 @@ export const Offer = styled.div`
     padding: 24px 0 34px 0;
   }
 
-  background-color: ${({ theme }) => theme.colors.aplicationColors['primary']};
+  background-color: ${({ theme }) => theme.colors.main.primary['default']};
   padding: 128px 0 128px 0;
 `;
 
