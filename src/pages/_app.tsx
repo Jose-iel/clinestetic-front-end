@@ -1,5 +1,6 @@
 import Footer from 'components/groups/Footer';
 import Header from 'components/groups/Header';
+import Offer from 'components/groups/Offer';
 import DataContext from 'contexts/data.context';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -23,6 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <GlobalStyle />
         <Header />
         <Component {...pageProps} />
+        <Offer />
         <Footer />
       </ThemeProvider>
     </DataContext.Provider>
