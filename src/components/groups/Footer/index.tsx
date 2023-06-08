@@ -1,8 +1,10 @@
 import { useContext } from 'react';
-import * as S from './style';
-import { Box, Container } from 'styles/layout';
+
 import DataContext from 'contexts/data.context';
 import { IResponseCms } from 'pages/interfaces';
+import { Box, Container } from 'styles/layout';
+
+import * as S from './style';
 
 export default function Footer() {
   const cms = useContext<IResponseCms>(DataContext);
