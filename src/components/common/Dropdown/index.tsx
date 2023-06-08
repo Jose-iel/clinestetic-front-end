@@ -1,20 +1,26 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import * as S from './style';
-import { IDropdown } from './interfaces';
+import handlerScrollbar from 'utilities/scrollbar';
 
-export default function Dropdown({
-  action,
-  children,
-  classes,
-  hasChild
-}: IDropdown) {
+import { IDropdown } from './interfaces';
+import * as S from './style';
+
+export default function Dropdown({ options, children }: IDropdown) {
+  const trigger = options?.trigger;
+
   return (
-    <DropdownMenu.Root>
+    <DropdownMenu.Root onOpenChange={handlerScrollbar}>
       <S.Trigger
-        className={classes?.trigger}
-        {...(hasChild && { asChild: true })}
+        options={{
+          trigger: {
+            classes: trigger.classes,
+            hasChild: trigger.hasChild
+          }
+        }}
+        {...(trigger?.hasChild && {
+          asChild: true
+        })}
       >
-        {action}
+        {options?.action}
       </S.Trigger>
       <DropdownMenu.Portal>{children}</DropdownMenu.Portal>
     </DropdownMenu.Root>

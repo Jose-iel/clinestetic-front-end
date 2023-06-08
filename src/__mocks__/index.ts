@@ -20,6 +20,18 @@ export const headerMockData = {
   ]
 };
 
+export const banners = {
+  banners: {
+    intro: {
+      title: 'Somos a Clinestetic',
+      subtitle:
+        'Sistema que te proporciona uma ampliação de beleza e bem estar mais perto de você.',
+      paragraph:
+        'Nosso objetivo de promover a saúde e o bem-estar físico e estético mais!'
+    }
+  }
+};
+
 export const footerMockData = {
   footer: {
     info: [

@@ -25,6 +25,11 @@ export const GlobalStyle = createGlobalStyle`
   ul {
     list-style: none;
   }
+
+  body.no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
 `;
 
 export default GlobalStyle;

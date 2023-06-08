@@ -1,21 +1,23 @@
 import { useContext } from 'react';
-import Link from 'next/link';
-import * as S from './style';
-import { Box, Container } from 'styles/layout';
-import { useTheme } from 'styled-components';
-import { Theme } from 'styles/theme';
-import { BsChevronDown } from 'react-icons/bs';
 import {
   AiOutlineShoppingCart,
   AiOutlineSearch,
   AiOutlineMenu
 } from 'react-icons/ai';
-import { renderIcon } from './utilities';
+import { BsChevronDown } from 'react-icons/bs';
+
 import Dropdown from 'components/common/Dropdown';
-import FieldCustom from 'components/form/FieldCustom';
 import Button from 'components/form/Button';
+import FieldCustom from 'components/form/FieldCustom';
 import DataContext from 'contexts/data.context';
+import Link from 'next/link';
 import { IResponseCms } from 'pages/interfaces';
+import { useTheme } from 'styled-components';
+import { Theme } from 'styles/interfaces';
+import { Box, Container } from 'styles/layout';
+
+import * as S from './style';
+import { renderIcon } from './utilities';
 
 export default function Header() {
   const cms = useContext<IResponseCms>(DataContext);
@@ -37,14 +39,21 @@ export default function Header() {
           </Box>
           <S.HeaderDesktop>
             <FieldCustom
+              formType="input"
               options={{
-                id: 'search',
-                name: 'search',
-                placeholder: 'Encontre o tratamento',
-                iconElement: (
-                  <AiOutlineSearch size={18} color={colors?.dark[400]} />
-                ),
-                rounded: true
+                input: {
+                  id: 'search',
+                  name: 'search',
+                  type: 'text',
+                  placeholder: 'Encontre o tratamento',
+                  variant: 'primary',
+                  rounded: true,
+                  iconPosition: 'right',
+                  marginWrapper: '0rem',
+                  iconElement: (
+                    <AiOutlineSearch size={18} color={colors?.dark[400]} />
+                  )
+                }
               }}
             />
             <S.NavbarLinks>
@@ -53,13 +62,17 @@ export default function Header() {
                   return item.submenu ? (
                     <Dropdown
                       key={item.id}
-                      action={
-                        <Link href={item.path}>
-                          {item.name}
-                          <BsChevronDown size={18} />
-                        </Link>
-                      }
-                      hasChild={true}
+                      options={{
+                        action: (
+                          <Link href={item.path}>
+                            {item.name}
+                            <BsChevronDown size={18} />
+                          </Link>
+                        ),
+                        trigger: {
+                          hasChild: true
+                        }
+                      }}
                     >
                       <S.Content>
                         <Box display="flex" flexDirection="column">

@@ -1,11 +1,12 @@
-import Head from 'next/head';
+import Footer from 'components/groups/Footer';
+import Header from 'components/groups/Header';
+import Offer from 'components/groups/Offer';
+import DataContext from 'contexts/data.context';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'styles/global';
 import { theme } from 'styles/theme';
-import Footer from 'components/Footer';
-import Header from 'components/Header';
-import DataContext from 'contexts/data.context';
 
 export default function App({ Component, pageProps }: AppProps) {
   const { cms } = pageProps;
@@ -23,6 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <GlobalStyle />
         <Header />
         <Component {...pageProps} />
+        <Offer />
         <Footer />
       </ThemeProvider>
     </DataContext.Provider>

@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
 import { headerMockData } from '__mocks__';
+import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'styles/theme';
+
 import Header from '.';
 
 describe('Header', () => {
