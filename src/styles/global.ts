@@ -26,8 +26,6 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
-
-
   body.no-scrollbar::-webkit-scrollbar {
     display: none;
   }

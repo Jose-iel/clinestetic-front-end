@@ -1,26 +1,4 @@
-import { DefaultTheme } from 'styled-components';
-
-type DefaultProps = {
-  [key: number]: string;
-};
-
-export interface Theme extends DefaultTheme {
-  colors?: {
-    main: {
-      primary: {
-        default: string;
-        hover: string;
-      };
-      accent: string;
-    };
-    light: DefaultProps;
-    dark: DefaultProps;
-    typography: DefaultProps;
-  };
-  space?: DefaultProps;
-  fontSizes?: DefaultProps;
-  radii?: DefaultProps;
-}
+import { Theme } from './interfaces';
 
 export const theme: Theme = {
   colors: {
@@ -90,6 +68,7 @@ export const theme: Theme = {
     4: '0.25rem',
     8: '0.5rem',
     12: '0.75rem',
+    15: '0.938rem',
     16: '1rem',
     18: '1.125rem',
     20: '1.25rem',

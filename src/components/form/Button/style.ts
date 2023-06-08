@@ -1,24 +1,28 @@
 import styled from 'styled-components';
+import { StyledProps } from 'styles/interfaces';
 import { theme } from 'styles/theme';
 
 const { radii, colors } = theme;
 
 export const Button = styled.button<{
-  size?: 'sm' | 'md' | 'lg';
-  variant?: 'primary' | 'secondary';
-  width?: string;
-  height?: string;
-  rounded?: string;
-  hasIcon: boolean;
+  options: {
+    size?: 'sm' | 'md' | 'lg';
+    variant?: 'primary' | 'secondary';
+    width?: string;
+    height?: string;
+    rounded?: string;
+    hasIcon: boolean;
+    css?: StyledProps;
+  };
 }>`
-  width: ${(props) => props?.width};
-  height: ${(props) => props?.height};
+  width: ${({ options }) => options?.width};
+  height: ${({ options }) => options?.height};
   transition: 0.3s;
-  border-radius: ${(props) =>
-    props?.rounded ? `${props?.rounded}` : `${radii && radii[52]}`};
+  border-radius: ${({ options }) =>
+    options?.rounded ? `${options?.rounded}` : `${radii && radii[52]}`};
 
-  ${(props) => {
-    switch (props?.variant) {
+  ${({ options }) => {
+    switch (options?.variant) {
       case 'primary':
         return {
           background: `${colors?.main.primary.default}`,
@@ -36,8 +40,8 @@ export const Button = styled.button<{
     }
   }}
 
-  ${(props) => {
-    switch (props?.size) {
+  ${({ options }) => {
+    switch (options?.size) {
       case 'md':
         return {
           color: `${colors?.light[100]}`,
@@ -47,11 +51,13 @@ export const Button = styled.button<{
     }
   }};
 
-  ${(props) =>
-    props?.hasIcon && {
+  ${({ options }) =>
+    options?.hasIcon && {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       padding: 'inherit'
     }}
+
+  ${({ options }) => options?.css}
 `;
