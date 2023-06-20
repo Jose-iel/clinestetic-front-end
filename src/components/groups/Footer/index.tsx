@@ -11,8 +11,6 @@ export default function Footer() {
 
   if (!cms) return null;
 
-  const { footer } = cms;
-
   const date = new Date();
   const year = date.getFullYear();
 
@@ -27,13 +25,13 @@ export default function Footer() {
         >
           <Box marginBottom={['30px', '0px']}>
             <S.Logo src="img/footer/logo-footer.svg" alt="logo" />
-            {footer?.info.map((element, index) => (
+            {cms.footer?.info.map((element, index) => (
               <S.SubTitle key={index}>
                 <b>{element.name}:</b> {element.value}
               </S.SubTitle>
             ))}
             <Box marginTop="30px">
-              {footer?.social.map((element, index) => (
+              {cms.footer?.social.map((element, index) => (
                 <S.Icon key={index} src={element} />
               ))}
             </Box>
@@ -47,7 +45,7 @@ export default function Footer() {
               <S.MenuTitle>
                 <b>Links</b>
               </S.MenuTitle>
-              {footer?.links.map((element, index) => (
+              {cms.footer?.links.main?.map((element, index) => (
                 <S.Links key={index} href={element.url}>
                   {element.name}
                 </S.Links>
@@ -57,7 +55,7 @@ export default function Footer() {
               <S.MenuTitle>
                 <b>Contato</b>
               </S.MenuTitle>
-              {footer?.contact.map((element, index) => (
+              {cms.footer?.contact.map((element, index) => (
                 <S.SubTitle key={index}>{element}</S.SubTitle>
               ))}
             </Box>
@@ -76,7 +74,7 @@ export default function Footer() {
             display="flex"
             justifyContent="space-between"
           >
-            {footer?.bottomLinks.map((element, index) => (
+            {cms.footer?.links?.bottom?.map((element, index) => (
               <S.BottomLinks key={index} href={element.url}>
                 <b>{element.name}</b>
               </S.BottomLinks>

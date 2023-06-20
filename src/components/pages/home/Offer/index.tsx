@@ -1,17 +1,23 @@
+import { useContext } from 'react';
+
 import Card from 'components/common/Card';
 import Heading from 'components/common/Heading';
 import Button from 'components/form/Button';
 import FieldCustom from 'components/form/FieldCustom';
+import DataContext from 'contexts/data.context';
 import { useRouter } from 'next/router';
-import { css, useTheme } from 'styled-components';
+import { IResponseCms } from 'pages/interfaces';
+import { useTheme } from 'styled-components';
+import * as css from 'styles/components/offer.component';
 import { Theme } from 'styles/interfaces';
 import { Box } from 'styles/layout';
 
 import * as S from './style';
 
 export default function Offer() {
+  const cms = useContext<IResponseCms>(DataContext);
   const theme: Theme = useTheme();
-  const { colors, fontSizes, bp } = theme;
+  const { fontSizes } = theme;
 
   const location = useRouter();
 
@@ -27,36 +33,14 @@ export default function Offer() {
               title={{
                 as: 'h3',
                 size: `${fontSizes && fontSizes[15]}`,
-                text: 'CADASTRE-SE',
-                css: css`
-                  color: ${colors?.light[100]};
-                  font-weight: 400;
-                  margin-bottom: 0.5rem;
-                  letter-spacing: 3px;
-
-                  @media (max-width: ${bp?.lg}) {
-                    font-size: ${fontSizes && fontSizes[15]};
-                  }
-                `
+                text: `${cms.home?.offer?.title}`,
+                css: css.headingOfferTitle
               }}
               subtitle={{
                 as: 'h2',
                 size: `${fontSizes && fontSizes[36]}`,
-                text: 'Receba as ofertas',
-                css: css`
-                  color: ${colors?.light[100]};
-                  max-width: 10ch;
-
-                  @media (max-width: ${bp?.lg}) {
-                    max-width: 100%;
-                    font-size: ${fontSizes && fontSizes[32]};
-                  }
-
-                  @media (max-width: ${bp?.sm}) {
-                    max-width: 100%;
-                    font-size: ${fontSizes && fontSizes[30]};
-                  }
-                `
+                text: `${cms.home?.offer?.subtitle}`,
+                css: css.headingOfferSubtitle
               }}
             />
           </Box>
@@ -65,20 +49,7 @@ export default function Offer() {
           <Card
             options={{
               rounded: false,
-              css: css`
-                display: flex;
-                align-items: center;
-                gap: 1.5rem;
-                padding: 4rem 2rem;
-                box-shadow: none;
-                width: 100%;
-
-                @media (max-width: ${bp?.sm}) {
-                  padding: 2rem 1.5rem;
-                  flex-direction: column;
-                  width: 100%;
-                }
-              `
+              css: css.cardOffer
             }}
           >
             <FieldCustom
@@ -97,11 +68,7 @@ export default function Offer() {
               options={{
                 variant: 'primary',
                 width: '10rem',
-                css: css`
-                  @media (max-width: ${bp?.sm}) {
-                    width: 100%;
-                  }
-                `
+                css: css.buttonOffer
               }}
               hasIcon={false}
             >

@@ -69,7 +69,7 @@ export default function Treatments({ cms }: ICmsData) {
         </S.FieldsWrapper>
       </Container>
       <Products
-        products={cms?.treatmentProducts}
+        products={cms.products?.treatment}
         options={{
           columns: 4
         }}

@@ -1,19 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { IFieldCustom } from './interfaces';
 import * as S from './style';
 
 export default function Input({ formType, options }: IFieldCustom) {
-  const [selectedOptions, setSelectedOptions] = useState<unknown>({
-    label: '',
-    value: ''
-  });
+  const [selectedOptions, setSelectedOptions] = useState<unknown>();
   const inputForm = options?.input;
   const selectForm = options?.select;
 
   function handleSelectChange(items: unknown) {
     setSelectedOptions(items);
   }
+
+  useEffect(() => {
+    setSelectedOptions('');
+  }, []);
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function Input({ formType, options }: IFieldCustom) {
               isClearable={selectForm?.isClearable || true}
               closeMenuOnSelect={selectForm?.closeMenuOnSelect || false}
               noOptionsMessage={() => selectForm?.messageOption}
-              onChange={(items) => handleSelectChange(items)}
+              onChange={handleSelectChange}
               value={selectedOptions}
               classNamePrefix="react-select"
             />

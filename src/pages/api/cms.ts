@@ -1,10 +1,4 @@
-import {
-  headingsMockData,
-  productsMockData,
-  accordionsMockData,
-  footerMockData,
-  headerMockData
-} from '__mocks__';
+import { cmsMockData } from '__mocks__';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { IResponseCms } from 'pages/interfaces';
 
@@ -13,10 +7,6 @@ export default function handler(
   res: NextApiResponse<IResponseCms>
 ) {
   res.status(200).json({
-    ...headerMockData,
-    ...footerMockData,
-    ...headingsMockData,
-    ...accordionsMockData,
-    ...productsMockData
+    ...cmsMockData
   });
 }

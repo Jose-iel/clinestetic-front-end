@@ -6,11 +6,8 @@ import Banner from 'components/groups/Banner';
 import { BannerTextWrap } from 'components/groups/Banner/style';
 import Products from 'components/groups/Products';
 import Faq from 'components/pages/home/Faq';
-import { css, useTheme } from 'styled-components';
-import {
-  bannerFreeTrial,
-  bannerIntroStyled
-} from 'styles//components/banners.component';
+import { useTheme } from 'styled-components';
+import * as css from 'styles//components/banners.component';
 import { Theme } from 'styles/interfaces';
 import fetcher from 'utilities/cms';
 
@@ -18,55 +15,37 @@ import { ICmsData } from './interfaces';
 
 export default function Home({ cms }: ICmsData) {
   const theme: Theme = useTheme();
-  const { colors, fontSizes, space, bp } = theme;
+  const { fontSizes } = theme;
 
   return (
     <>
       <Banner
         options={{
           contentWidth: '68.75rem',
-          background: 'img/home/girl-background-carousel.svg',
-          css: bannerIntroStyled
+          background: `${cms.home?.banners?.intro.image}`,
+          css: css.bannerIntro
         }}
       >
         <BannerTextWrap>
           <Heading
             title={{
-              text: `${cms?.banners?.intro?.title}`,
-              css: css`
-                color: ${colors?.light[150]};
-                margin-bottom: ${space && space[16]};
-              `
+              text: `${cms.home?.banners?.intro.title}`,
+              css: css.headingIntroTitle
             }}
             subtitle={{
-              text: `${cms?.banners?.intro?.subtitle}`,
-              css: css`
-                color: ${colors?.light[150]};
-                margin-bottom: ${space && space[49]};
-                font-weight: 400;
-              `
+              text: `${cms.home?.banners?.intro.subtitle}`,
+              css: css.headingIntroSubtitle
             }}
             paragraph={{
-              text: `${cms?.banners?.intro?.paragraph}`,
-              css: css`
-                color: ${colors?.light[150]};
-                font-weight: 300;
-                line-height: 1.4;
-              `
+              text: `${cms.home?.banners?.intro.paragraph}`,
+              css: css.headingIntroParagraph
             }}
           />
         </BannerTextWrap>
         <Card
           options={{
             rounded: false,
-            css: css`
-              width: 25rem;
-
-              @media screen and (max-width: ${bp?.sm}) {
-                width: 100%;
-                padding: ${space && space[32]};
-              }
-            `
+            css: css.cardIntro
           }}
         >
           <form>
@@ -123,7 +102,7 @@ export default function Home({ cms }: ICmsData) {
         </Card>
       </Banner>
       <Products
-        products={cms?.topSellingProducts}
+        products={cms.products?.topSelling}
         options={{
           columns: 3,
           heading: {
@@ -134,8 +113,8 @@ export default function Home({ cms }: ICmsData) {
       <Banner
         options={{
           contentWidth: '68.75rem',
-          background: 'img/home/agende-avaliacao.svg',
-          css: bannerFreeTrial
+          background: `${cms.home?.banners?.evaluation.image}`,
+          css: css.bannerEvaluation
         }}
       >
         <BannerTextWrap>
@@ -143,46 +122,20 @@ export default function Home({ cms }: ICmsData) {
             title={{
               as: 'h3',
               size: `${fontSizes && fontSizes[15]}`,
-              text: `AVALIAÇÃO GRATUITA`,
-              css: css`
-                color: ${colors?.light[150]};
-                margin-bottom: ${space && space[16]};
-                font-weight: 400;
-                letter-spacing: 3px;
-
-                @media (max-width: ${bp?.lg}) {
-                  font-size: ${fontSizes && fontSizes[15]};
-                }
-              `
+              text: `${cms.home?.banners?.evaluation.title}`,
+              css: css.headingEvaluationTitle
             }}
             subtitle={{
               size: `${fontSizes && fontSizes[52]}`,
-              text: `Agende uma avaliação`,
-              css: css`
-                color: ${colors?.light[150]};
-                font-weight: 700;
-
-                @media (max-width: ${bp?.lg}) {
-                  font-size: ${fontSizes && fontSizes[40]};
-                }
-
-                @media (max-width: ${bp?.sm}) {
-                  font-size: ${fontSizes && fontSizes[36]};
-                }
-              `
+              text: `${cms.home?.banners?.evaluation.subtitle}`,
+              css: css.headingEvaluationSubtitle
             }}
           />
         </BannerTextWrap>
         <Card
           options={{
             rounded: false,
-            css: css`
-              width: 25rem;
-              @media (max-width: ${bp?.sm}) {
-                width: 100%;
-                padding: ${space && space[32]};
-              }
-            `
+            css: css.cardEvaluation
           }}
         >
           <form>
@@ -238,7 +191,7 @@ export default function Home({ cms }: ICmsData) {
         </Card>
       </Banner>
       <Products
-        products={cms?.treatmentProducts}
+        products={cms.products?.treatment}
         options={{
           columns: 4,
           heading: {

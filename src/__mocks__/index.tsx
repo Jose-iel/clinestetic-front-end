@@ -1,4 +1,4 @@
-export const headerMockData = {
+export const cmsMockData = {
   header: [
     { id: 1, name: 'Home', path: '/' },
     { id: 2, name: 'Tratamentos', path: '/tratamentos' },
@@ -17,163 +17,7 @@ export const headerMockData = {
         }
       ]
     }
-  ]
-};
-
-export const headingsMockData = {
-  banners: {
-    intro: {
-      title: 'Somos a Clinestetic',
-      subtitle:
-        'Sistema que te proporciona uma ampliação de beleza e bem estar mais perto de você.',
-      paragraph:
-        'Nosso objetivo de promover a saúde e o bem-estar físico e estético mais!'
-    }
-  },
-  faq: {
-    title: 'Dúvidas',
-    subtitle: 'Como podemos te ajudar?',
-    paragraph: 'Selecione a categoria da sua dúvida ou tente uma palavra-chave.'
-  }
-};
-
-export const accordionsMockData = {
-  accordionHome: [
-    {
-      id: 1,
-      title: 'Como faço para acessar Minhas Compras?',
-      description: `
-        <p>
-          Após a confirmação de pagamento, seu voucher será enviado para o seu
-          email e será disponibilizado para visualização e impressão na
-          <b>sua conta</b> em nosso site ou aplicativo.
-        </p>
-        <p>
-          Para visualizar, faça o <b>login</b> em nosso site ou aplicativo,
-          clique em <b>Minhas Compras</b>. Você visualizará o histórico e o
-          status das suas compras.
-        </p>
-        `
-    }
-  ]
-};
-
-export const productsMockData = {
-  topSellingProducts: [
-    {
-      id: 1,
-      location: 'Osasco',
-      img: {
-        src: 'img/home/bumbum-de-ouro.png',
-        alt: ''
-      },
-      title: 'Bumbum de ouro',
-      description: 'Pigmentação de pele Lorem Ipsum',
-      price: 1300,
-      installments: 10
-    },
-    {
-      id: 2,
-      location: 'Tatuapé',
-      img: {
-        src: 'img/home/peeling.png',
-        alt: ''
-      },
-      title: 'Peeling Químico + Cauterização capilar',
-      description: 'Peeling mais Cauterização',
-      price: 690,
-      installments: 10
-    },
-    {
-      id: 3,
-      location: 'Tatuapé',
-      img: {
-        src: 'img/home/depilacao.png',
-        alt: ''
-      },
-      title: 'Depilação',
-      description: 'Depilação corporal',
-      price: 890,
-      installments: 10
-    }
   ],
-  treatmentProducts: [
-    {
-      id: 1,
-      location: 'Osasco',
-      img: {
-        src: 'img/home/bumbum-de-ouro.png',
-        alt: ''
-      },
-      title: 'Bumbum de ouro',
-      description: 'Pigmentação de pele Lorem Ipsum',
-      price: 1300,
-      installments: 10
-    },
-    {
-      id: 2,
-      location: 'Tatuapé',
-      img: {
-        src: 'img/home/peeling.png',
-        alt: ''
-      },
-      title: 'Peeling Químico + Cauterização capilar',
-      description: 'Peeling mais Cauterização',
-      price: 690,
-      installments: 10
-    },
-    {
-      id: 3,
-      location: 'Tatuapé',
-      img: {
-        src: 'img/home/depilacao.png',
-        alt: ''
-      },
-      title: 'Depilação',
-      description: 'Depilação corporal',
-      price: 890,
-      installments: 10
-    },
-    {
-      id: 4,
-      location: 'Osasco',
-      img: {
-        src: 'img/home/bumbum-de-ouro.png',
-        alt: ''
-      },
-      title: 'Bumbum de ouro',
-      description: 'Pigmentação de pele Lorem Ipsum',
-      price: 1300,
-      installments: 10
-    },
-    {
-      id: 5,
-      location: 'Tatuapé',
-      img: {
-        src: 'img/home/peeling.png',
-        alt: ''
-      },
-      title: 'Peeling Químico + Cauterização capilar',
-      description: 'Peeling mais Cauterização',
-      price: 690,
-      installments: 10
-    },
-    {
-      id: 6,
-      location: 'Tatuapé',
-      img: {
-        src: 'img/home/depilacao.png',
-        alt: ''
-      },
-      title: 'Depilação',
-      description: 'Depilação corporal',
-      price: 890,
-      installments: 10
-    }
-  ]
-};
-
-export const footerMockData = {
   footer: {
     info: [
       { name: 'CNPJ', value: '00000000000' },
@@ -185,24 +29,185 @@ export const footerMockData = {
       'img/footer/twitter.svg',
       'img/footer/youtube.svg'
     ],
-    links: [
-      { name: 'Home', url: '#' },
-      { name: 'Tratamentos', url: '#' },
-      { name: 'FAQ', url: '#' },
-      { name: 'Sobre', url: '#' },
-      { name: 'Contato', url: '#' }
-    ],
+    links: {
+      main: [
+        { name: 'Home', url: '#' },
+        { name: 'Tratamentos', url: '#' },
+        { name: 'FAQ', url: '#' },
+        { name: 'Sobre', url: '#' },
+        { name: 'Contato', url: '#' }
+      ],
+      bottom: [
+        { name: 'Home', url: '#' },
+        { name: 'Segurança', url: '#' },
+        { name: 'Termos', url: '#' }
+      ]
+    },
     contact: [
       '19 9932-1234',
       'contato@clinestetic.com',
       'Rua Marte, 100',
       'Terra - Sistema Solar',
       'CEP 120444-224'
+    ]
+  },
+  products: {
+    topSelling: [
+      {
+        id: 1,
+        location: 'Osasco',
+        img: {
+          src: 'img/home/bumbum-de-ouro.png',
+          alt: ''
+        },
+        title: 'Bumbum de ouro',
+        description: 'Pigmentação de pele Lorem Ipsum',
+        price: 1300,
+        installments: 10
+      },
+      {
+        id: 2,
+        location: 'Tatuapé',
+        img: {
+          src: 'img/home/peeling.png',
+          alt: ''
+        },
+        title: 'Peeling Químico + Cauterização capilar',
+        description: 'Peeling mais Cauterização',
+        price: 690,
+        installments: 10
+      },
+      {
+        id: 3,
+        location: 'Tatuapé',
+        img: {
+          src: 'img/home/depilacao.png',
+          alt: ''
+        },
+        title: 'Depilação',
+        description: 'Depilação corporal',
+        price: 890,
+        installments: 10
+      }
     ],
-    bottomLinks: [
-      { name: 'Home', url: '#' },
-      { name: 'Segurança', url: '#' },
-      { name: 'Termos', url: '#' }
+    treatment: [
+      {
+        id: 1,
+        location: 'Osasco',
+        img: {
+          src: 'img/home/bumbum-de-ouro.png',
+          alt: ''
+        },
+        title: 'Bumbum de ouro',
+        description: 'Pigmentação de pele Lorem Ipsum',
+        price: 1300,
+        installments: 10
+      },
+      {
+        id: 2,
+        location: 'Tatuapé',
+        img: {
+          src: 'img/home/peeling.png',
+          alt: ''
+        },
+        title: 'Peeling Químico + Cauterização capilar',
+        description: 'Peeling mais Cauterização',
+        price: 690,
+        installments: 10
+      },
+      {
+        id: 3,
+        location: 'Tatuapé',
+        img: {
+          src: 'img/home/depilacao.png',
+          alt: ''
+        },
+        title: 'Depilação',
+        description: 'Depilação corporal',
+        price: 890,
+        installments: 10
+      },
+      {
+        id: 4,
+        location: 'Osasco',
+        img: {
+          src: 'img/home/bumbum-de-ouro.png',
+          alt: ''
+        },
+        title: 'Bumbum de ouro',
+        description: 'Pigmentação de pele Lorem Ipsum',
+        price: 1300,
+        installments: 10
+      },
+      {
+        id: 5,
+        location: 'Tatuapé',
+        img: {
+          src: 'img/home/peeling.png',
+          alt: ''
+        },
+        title: 'Peeling Químico + Cauterização capilar',
+        description: 'Peeling mais Cauterização',
+        price: 690,
+        installments: 10
+      },
+      {
+        id: 6,
+        location: 'Tatuapé',
+        img: {
+          src: 'img/home/depilacao.png',
+          alt: ''
+        },
+        title: 'Depilação',
+        description: 'Depilação corporal',
+        price: 890,
+        installments: 10
+      }
+    ]
+  },
+  home: {
+    banners: {
+      intro: {
+        image: 'img/home/girl-background-carousel.svg',
+        title: 'Somos a Clinestetic',
+        subtitle:
+          'Sistema que te proporciona uma ampliação de beleza e bem estar mais perto de você.',
+        paragraph:
+          'Nosso objetivo de promover a saúde e o bem-estar físico e estético mais!'
+      },
+      evaluation: {
+        image: 'img/home/agende-avaliacao.svg',
+        title: 'AVALIAÇÃO GRATUITA',
+        subtitle: 'Agende uma avaliação'
+      }
+    },
+    faq: {
+      title: 'Dúvidas',
+      subtitle: 'Como podemos te ajudar?',
+      paragraph:
+        'Selecione a categoria da sua dúvida ou tente uma palavra-chave.'
+    },
+    offer: {
+      title: 'CADASTRE-SE',
+      subtitle: 'Receba as ofertas'
+    },
+    accordion: [
+      {
+        id: 1,
+        title: 'Como faço para acessar Minhas Compras?',
+        description: `
+          <p>
+            Após a confirmação de pagamento, seu voucher será enviado para o seu
+            email e será disponibilizado para visualização e impressão na
+            <b>sua conta</b> em nosso site ou aplicativo.
+          </p>
+          <p>
+            Para visualizar, faça o <b>login</b> em nosso site ou aplicativo,
+            clique em <b>Minhas Compras</b>. Você visualizará o histórico e o
+            status das suas compras.
+          </p>
+        `
+      }
     ]
   }
 };

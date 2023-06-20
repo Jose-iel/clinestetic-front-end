@@ -21,6 +21,7 @@ export const FaqWrap = styled.div`
 
 export const FaqText = styled.div`
   max-width: 30ch;
+
   @media (max-width: ${bp?.lg}) {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -51,7 +52,7 @@ export const AccordionTrigger = styled(Accordion.Trigger)<{
   align-items: center;
   justify-content: space-between;
   background: ${colors?.light[100]};
-  border-radius: 16px;
+  border-radius: 1rem;
   font-weight: 700;
   color: ${colors?.dark[400]};
   width: 100%;
@@ -70,6 +71,7 @@ export const AccordionTrigger = styled(Accordion.Trigger)<{
     height: 2rem;
     border-radius: ${radii && radii[52]};
     background: ${colors?.main.primary.default};
+
     svg {
       color: ${colors?.light[100]};
     }

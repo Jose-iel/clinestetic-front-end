@@ -27,14 +27,14 @@ export default function Faq() {
               title={{
                 as: 'h2',
                 size: `${fontSizes && fontSizes[30]}`,
-                text: `${cms?.faq?.title}`,
+                text: `${cms.home?.faq?.title}`,
                 css: css`
                   margin-bottom: 2rem;
                 `
               }}
               subtitle={{
                 as: 'h3',
-                text: `${cms?.faq?.subtitle}`,
+                text: `${cms.home?.faq?.subtitle}`,
                 size: `${fontSizes && fontSizes[18]}`,
                 css: css`
                   color: ${colors?.dark[400]};
@@ -42,7 +42,7 @@ export default function Faq() {
                 `
               }}
               paragraph={{
-                text: `${cms?.faq?.paragraph}`,
+                text: `${cms.home?.faq?.paragraph}`,
                 size: `${fontSizes && fontSizes[15]}`,
                 css: css`
                   color: ${colors?.dark[400]};
@@ -53,7 +53,7 @@ export default function Faq() {
           <S.FaqAccordion>
             <Accordion
               data={{
-                items: cms?.accordionHome,
+                items: cms.home?.accordion,
                 feedback: {
                   enabled: true,
                   iconClosed: <IoIosArrowDown size={18} />,

@@ -1,66 +1,42 @@
+import { IHeading } from 'components/common/Heading/interfaces';
+import { IFooter } from 'components/groups/Footer/interfaces';
+import { IHeader } from 'components/groups/Header/interfaces';
 import { ProductsProps } from 'components/groups/Products/interfaces';
 
-export interface IHeaderSubmenuProps {
-  id: number;
-  name: string;
-  icon: number;
-}
-
-export interface IHeaderData {
-  id: number;
-  name: string;
-  path: string;
-  icon?: number;
-  submenu?: IHeaderSubmenuProps[];
-}
-
-export interface IHeadings {
-  title: string;
-  subtitle: string;
-  paragraph: string;
-}
-
-export interface IFooterProps {
-  name: string;
-  value?: string;
-  url?: string;
-}
-
-export interface IFooterData {
-  info: IFooterProps[];
-  social: string[];
-  links: IFooterProps[];
-  contact: string[];
-  bottomLinks: IFooterProps[];
-}
-
-export interface AccordionHomeProps {
-  id: number;
-  title: string;
-  description: string;
-}
-
-export interface ICmsData {
-  cms?: {
-    header?: IHeaderData[];
-    banners?: {
-      intro?: IHeadings;
-    };
-    accordionHome?: AccordionHomeProps[];
-    topSellingProducts?: ProductsProps[];
-    treatmentProducts?: ProductsProps[];
-    footer?: IFooterData;
-  };
+export interface BannerProps extends IHeading {
+  image: string;
 }
 
 export interface IResponseCms {
-  header?: IHeaderData[];
-  banners?: {
-    intro?: IHeadings;
+  header?: IHeader[];
+  footer?: {
+    info: IFooter[];
+    social: string[];
+    contact: string[];
+    links: {
+      main: IFooter[];
+      bottom: IFooter[];
+    };
   };
-  faq?: IHeadings;
-  accordionHome?: AccordionHomeProps[];
-  topSellingProducts?: ProductsProps[];
-  treatmentProducts?: ProductsProps[];
-  footer?: IFooterData;
+  products?: {
+    topSelling: ProductsProps[];
+    treatment: ProductsProps[];
+  };
+  home?: {
+    banners?: {
+      intro: BannerProps;
+      evaluation: BannerProps;
+    };
+    faq?: IHeading;
+    offer?: IHeading;
+    accordion?: {
+      id: number;
+      title: string;
+      description: string;
+    }[];
+  };
+}
+
+export interface ICmsData {
+  cms: IResponseCms;
 }

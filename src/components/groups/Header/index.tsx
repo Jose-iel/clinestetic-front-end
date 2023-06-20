@@ -28,7 +28,6 @@ export default function Header() {
   if (!cms) return null;
 
   const { colors } = theme;
-  const { header } = cms;
 
   const user = false;
 
@@ -62,7 +61,7 @@ export default function Header() {
             />
             <S.NavbarLinks>
               <ul>
-                {header?.map((item) => {
+                {cms.header?.map((item) => {
                   return item.submenu ? (
                     <Dropdown
                       key={item.id}
@@ -80,7 +79,7 @@ export default function Header() {
                     >
                       <S.Content>
                         <Box display="flex" flexDirection="column">
-                          {item?.submenu?.map((submenuItem) => (
+                          {item.submenu.map((submenuItem) => (
                             <S.Item key={submenuItem.id}>
                               <Link href="#">
                                 {renderIcon(submenuItem.icon)}

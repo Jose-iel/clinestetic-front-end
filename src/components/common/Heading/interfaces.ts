@@ -10,7 +10,7 @@ type HeadingProps = {
 };
 
 export interface IHeading {
-  title: HeadingProps;
-  subtitle?: HeadingProps;
-  paragraph?: HeadingProps;
+  title: HeadingProps | string;
+  subtitle?: HeadingProps | string;
+  paragraph?: HeadingProps | string;
 }
