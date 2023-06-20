@@ -1,14 +1,14 @@
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import { theme } from 'styles/theme';
 
-import { StyledProps } from './interfaces';
+import { StyledProps } from '../interfaces';
 
-const { colors } = theme;
+const { colors, bp } = theme;
 
 export const bannerIntroStyled: StyledProps = css`
   background-position: 15%;
   background-repeat: no-repeat;
-  @media screen and (max-width: 540px) {
+  @media (max-width: ${bp?.sm}) {
     background-position: 60%;
   }
   &:before {
@@ -39,8 +39,21 @@ export const bannerIntroStyled: StyledProps = css`
   }
 `;
 
-export const BannerTextWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 40ch;
+export const bannerFreeTrial: StyledProps = css`
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
+  padding: 115px 0;
+  max-width: 100%;
+  z-index: 0;
+  &:before {
+    content: '';
+    mix-blend-mode: screen;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(255, 28, 137, 0.9);
+  }
 `;

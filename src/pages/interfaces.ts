@@ -1,3 +1,5 @@
+import { ProductsProps } from 'components/groups/Products/interfaces';
+
 export interface IHeaderSubmenuProps {
   id: number;
   name: string;
@@ -12,7 +14,7 @@ export interface IHeaderData {
   submenu?: IHeaderSubmenuProps[];
 }
 
-export interface IBanners {
+export interface IHeadings {
   title: string;
   subtitle: string;
   paragraph: string;
@@ -32,12 +34,21 @@ export interface IFooterData {
   bottomLinks: IFooterProps[];
 }
 
+export interface AccordionHomeProps {
+  id: number;
+  title: string;
+  description: string;
+}
+
 export interface ICmsData {
   cms?: {
     header?: IHeaderData[];
     banners?: {
-      intro?: IBanners;
+      intro?: IHeadings;
     };
+    accordionHome?: AccordionHomeProps[];
+    topSellingProducts?: ProductsProps[];
+    treatmentProducts?: ProductsProps[];
     footer?: IFooterData;
   };
 }
@@ -45,7 +56,11 @@ export interface ICmsData {
 export interface IResponseCms {
   header?: IHeaderData[];
   banners?: {
-    intro?: IBanners;
+    intro?: IHeadings;
   };
+  faq?: IHeadings;
+  accordionHome?: AccordionHomeProps[];
+  topSellingProducts?: ProductsProps[];
+  treatmentProducts?: ProductsProps[];
   footer?: IFooterData;
 }

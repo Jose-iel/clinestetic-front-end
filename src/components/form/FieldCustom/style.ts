@@ -13,7 +13,9 @@ export const Label = styled.div`
   width: 100%;
 `;
 
-export const LabelText = styled.label`
+export const LabelText = styled.label<{
+  css?: StyledProps;
+}>`
   margin-bottom: ${space && space[8]};
   color: ${colors?.main.primary.default};
   font-weight: 500;

@@ -1,6 +1,6 @@
 import Footer from 'components/groups/Footer';
 import Header from 'components/groups/Header';
-import Offer from 'components/groups/Offer';
+import Offer from 'components/pages/home/Offer';
 import DataContext from 'contexts/data.context';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';

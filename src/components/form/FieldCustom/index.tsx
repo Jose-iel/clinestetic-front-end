@@ -1,22 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { IFieldCustom } from './interfaces';
 import * as S from './style';
 
 export default function Input({ formType, options }: IFieldCustom) {
-  const [selectedOptions, setSelectedOptions] = useState<unknown>(null);
+  const [selectedOptions, setSelectedOptions] = useState<unknown>({
+    label: '',
+    value: ''
+  });
   const inputForm = options?.input;
   const selectForm = options?.select;
 
-  useEffect(() => {
-    console.log(selectedOptions);
-  }, [selectedOptions]);
+  function handleSelectChange(items: unknown) {
+    setSelectedOptions(items);
+  }
 
   return (
     <>
       <S.Label>
         {options?.labelEnabled && (
-          <S.LabelText>
+          <S.LabelText css={inputForm?.cssLabel || selectForm?.cssLabel}>
             {inputForm?.textLabel || selectForm?.textLabel}
           </S.LabelText>
         )}
@@ -24,17 +27,20 @@ export default function Input({ formType, options }: IFieldCustom) {
         {formType === 'select' && (
           <S.FieldWrap>
             <S.Select
+              id={selectForm?.id}
+              name={selectForm?.name}
               placeholder={selectForm?.placeholder}
               isMulti={selectForm?.multiple || false}
               options={selectForm?.selectOptions}
-              onChange={(item) => setSelectedOptions(item)}
-              classNamePrefix="react-select"
-              isLoading={false}
-              isDisabled={false}
-              isSearchable={false}
-              isClearable={true}
-              closeMenuOnSelect={false}
+              isLoading={selectForm?.isLoading || false}
+              isDisabled={selectForm?.isDisabled || false}
+              isSearchable={selectForm?.isSearchable || false}
+              isClearable={selectForm?.isClearable || true}
+              closeMenuOnSelect={selectForm?.closeMenuOnSelect || false}
               noOptionsMessage={() => selectForm?.messageOption}
+              onChange={(items) => handleSelectChange(items)}
+              value={selectedOptions}
+              classNamePrefix="react-select"
             />
           </S.FieldWrap>
         )}
@@ -50,7 +56,7 @@ export default function Input({ formType, options }: IFieldCustom) {
                 rounded={inputForm?.rounded || false}
                 position={inputForm?.iconPosition || 'right'}
                 variant={inputForm?.variant || 'primary'}
-                css={{}}
+                css={inputForm?.css}
               />
             </S.InputWrap>
             {inputForm?.iconElement && (

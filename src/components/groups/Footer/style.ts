@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
 
-const { space, colors, fontSizes } = theme;
+const { space, colors, fontSizes, bp } = theme;
 
 export const Footer = styled.div`
-  @media only screen and (max-width: 768px) {
-    padding: 24px 0 34px 0;
-  }
-
   background-color: ${colors?.main.primary.default};
-  padding: 44px 0 64px 0;
+  padding: 2.75rem 0 4rem 0;
 
   border-top-width: 1px;
   border-top-style: solid;
@@ -18,6 +14,10 @@ export const Footer = styled.div`
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: ${colors?.light[200]};
+
+  @media (max-width: ${bp?.md}) {
+    padding: 1.5rem 0 2.125rem 0;
+  }
 `;
 
 export const Logo = styled.img`
@@ -54,13 +54,13 @@ export const Links = styled.a`
 export const SocialIcon = styled.img``;
 
 export const BottomFooter = styled.div`
-  @media only screen and (max-width: 768px) {
-    padding: 24px 0 34px 0;
-  }
-
   justify-content: space-between;
   background-color: ${colors?.main.primary.default};
-  padding: 32px 0 32px 0;
+  padding: 2rem 0 2rem 0;
+
+  @media (max-width: ${bp?.md}) {
+    padding: 1.5rem 0 2.125rem 0;
+  }
 `;
 
 export const Copy = styled.p`

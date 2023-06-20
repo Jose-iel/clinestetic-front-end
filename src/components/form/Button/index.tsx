@@ -1,10 +1,16 @@
 import { IButton } from './interfaces';
 import * as S from './style';
 
-export default function Button({ options, hasIcon, children }: IButton) {
+export default function Button({
+  options,
+  hasIcon,
+  onClick,
+  children
+}: IButton) {
   const op = options;
   return (
     <S.Button
+      onClick={onClick}
       options={{
         variant: op?.variant || 'primary',
         size: op?.size || 'md',

@@ -30,6 +30,7 @@ export const Button = styled.button<{
             background: `${colors?.main.primary.hover}`
           }
         };
+
       case 'secondary':
         return {
           background: `${colors?.dark[400]}`,

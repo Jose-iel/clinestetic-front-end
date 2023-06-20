@@ -15,6 +15,7 @@ import { IResponseCms } from 'pages/interfaces';
 import { useTheme } from 'styled-components';
 import { Theme } from 'styles/interfaces';
 import { Box, Container } from 'styles/layout';
+import { useNavigateTo } from 'utilities/navigate';
 
 import * as S from './style';
 import { renderIcon } from './utilities';
@@ -22,11 +23,14 @@ import { renderIcon } from './utilities';
 export default function Header() {
   const cms = useContext<IResponseCms>(DataContext);
   const theme: Theme = useTheme();
+  const navigateToLogin = useNavigateTo('/login');
 
   if (!cms) return null;
 
   const { colors } = theme;
   const { header } = cms;
+
+  const user = false;
 
   return (
     <S.Header data-testid="header">
@@ -63,7 +67,7 @@ export default function Header() {
                     <Dropdown
                       key={item.id}
                       options={{
-                        action: (
+                        action: user && (
                           <Link href={item.path}>
                             {item.name}
                             <BsChevronDown size={18} />
@@ -102,6 +106,7 @@ export default function Header() {
                   variant: 'primary'
                 }}
                 hasIcon={false}
+                onClick={() => navigateToLogin()}
               >
                 Login
               </Button>
@@ -113,7 +118,7 @@ export default function Header() {
                 }}
                 hasIcon={true}
               >
-                <AiOutlineShoppingCart size={30} />
+                <AiOutlineShoppingCart size={26} />
               </Button>
             </Box>
           </S.HeaderDesktop>
