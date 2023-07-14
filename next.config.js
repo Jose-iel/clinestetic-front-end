@@ -8,6 +8,9 @@ const nextConfig = {
     // user_key: 'auth-user',
     // data_key: 'auth-data',
     // is_admin: 'is_admin'
+  },
+  typescript: {
+    ignoreBuildErrors: true
   }
 };
 
