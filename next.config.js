@@ -11,7 +11,8 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true
-  }
+  },
+  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts']
 };
 
 module.exports = nextConfig;
