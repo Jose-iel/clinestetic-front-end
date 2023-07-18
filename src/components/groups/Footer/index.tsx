@@ -1,90 +1,74 @@
-import { useContext } from 'react';
+import React from 'react';
 
-import DataContext from 'contexts/data.context';
-import { IResponseCms } from 'pages/interfaces';
-import { Box, Container } from 'styles/layout';
+import Text from 'components/common/Text';
+import Link from 'next/link';
+import { Container } from 'styles/layout';
 
+import {
+  footerContact,
+  footerCopyRight,
+  footerLinks,
+  footerSocials
+} from './data';
 import * as S from './style';
 
 export default function Footer() {
-  const cms = useContext<IResponseCms>(DataContext);
-
-  if (!cms) return null;
-
-  const { footer } = cms;
-
   const date = new Date();
   const year = date.getFullYear();
 
   return (
-    <>
-      <S.Footer data-testid="footer">
-        <Container
-          display="flex"
-          flexDirection={['column', 'row']}
-          justifyContent="space-between"
-          alignItems={['center', 'flex-start']}
-        >
-          <Box marginBottom={['30px', '0px']}>
-            <S.Logo src="img/footer/logo-footer.svg" alt="logo" />
-            {footer?.info.map((element, index) => (
-              <S.SubTitle key={index}>
-                <b>{element.name}:</b> {element.value}
-              </S.SubTitle>
+    <S.Footer>
+      <Container>
+        <S.FooterContainer>
+          <S.FooterColumnItem>
+            <S.FooterLogo>
+              <img src="/img/footer/logo-footer.svg" alt="Logo do rodapé" />
+            </S.FooterLogo>
+            <S.FooterSocial>
+              {footerSocials.map((social) => (
+                <li key={social.id}>
+                  <S.FooterSocialLink href={social.href}>
+                    {social.icon}
+                  </S.FooterSocialLink>
+                </li>
+              ))}
+            </S.FooterSocial>
+          </S.FooterColumnItem>
+          <S.FooterNavContainer>
+            <S.FooterNavColumnItem>
+              <Text as="h3">Links</Text>
+              <S.FooterLinksItem>
+                {footerLinks.map((link) => (
+                  <li key={link.id}>
+                    <Link href={link.path}>{link.content}</Link>
+                  </li>
+                ))}
+              </S.FooterLinksItem>
+            </S.FooterNavColumnItem>
+            <S.FooterNavColumnItem>
+              <Text as="h3">Contato</Text>
+              <S.FooterContact>
+                {footerContact.map((item, index) => (
+                  <span key={item + index}>{item}</span>
+                ))}
+              </S.FooterContact>
+            </S.FooterNavColumnItem>
+          </S.FooterNavContainer>
+        </S.FooterContainer>
+      </Container>
+      <S.FooterCopyRight>
+        <Container>
+          <Text>© {year} Todos os direitos reservados.</Text>
+          <S.FooterCopyRightLink>
+            {footerCopyRight.map((item) => (
+              <a key={item.id} href={item.path}>
+                {' '}
+                {item.content}
+              </a>
             ))}
-            <Box marginTop="30px">
-              {footer?.social.map((element, index) => (
-                <S.Icon key={index} src={element} />
-              ))}
-            </Box>
-          </Box>
-          <Box display="flex">
-            <Box
-              display="flex"
-              flexDirection="column"
-              marginRight={['50px', '120px']}
-            >
-              <S.MenuTitle>
-                <b>Links</b>
-              </S.MenuTitle>
-              {footer?.links.map((element, index) => (
-                <S.Links key={index} href={element.url}>
-                  {element.name}
-                </S.Links>
-              ))}
-            </Box>
-            <Box display="flex" flexDirection="column">
-              <S.MenuTitle>
-                <b>Contato</b>
-              </S.MenuTitle>
-              {footer?.contact.map((element, index) => (
-                <S.SubTitle key={index}>{element}</S.SubTitle>
-              ))}
-            </Box>
-          </Box>
+          </S.FooterCopyRightLink>
         </Container>
-      </S.Footer>
-      <S.BottomFooter data-testid="copyright">
-        <Container
-          display="flex"
-          flexDirection={['column', 'row']}
-          justifyContent="space-between"
-          alignItems={['center', 'flex-start']}
-        >
-          <Box
-            width={['60%', '20%']}
-            display="flex"
-            justifyContent="space-between"
-          >
-            {footer?.bottomLinks.map((element, index) => (
-              <S.BottomLinks key={index} href={element.url}>
-                <b>{element.name}</b>
-              </S.BottomLinks>
-            ))}
-          </Box>
-          <S.Copy>&copy; {year} All rights reserved.</S.Copy>
-        </Container>
-      </S.BottomFooter>
-    </>
+      </S.FooterCopyRight>
+    </S.Footer>
   );
 }

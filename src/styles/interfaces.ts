@@ -26,4 +26,17 @@ export interface Theme extends DefaultTheme {
   space?: DefaultProps;
   fontSizes?: DefaultProps;
   radii?: DefaultProps;
+  fontWeight?: {
+    light: number;
+    regular: number;
+    medium: number;
+    semiBold: number;
+    bold: number;
+  };
+  bp?: {
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+  };
 }

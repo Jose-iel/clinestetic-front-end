@@ -1,19 +1,32 @@
-import { IButton } from './interfaces';
+import React, { ReactNode } from 'react';
+
+import { StyledProps } from 'styles/interfaces';
+
 import * as S from './style';
 
-export default function Button({ options, hasIcon, children }: IButton) {
-  const op = options;
+interface IButton {
+  children: ReactNode;
+  onClick?: () => void;
+  styled?: StyledProps;
+  variant?: 'primary' | 'secondary';
+  icon?: boolean;
+}
+
+export default function Button({
+  onClick,
+  styled,
+  children,
+  variant,
+  icon,
+  ...props
+}: IButton) {
   return (
     <S.Button
-      options={{
-        variant: op?.variant || 'primary',
-        size: op?.size || 'md',
-        width: op?.width || '10%',
-        height: op?.height,
-        rounded: op?.rounded,
-        css: op?.css,
-        hasIcon
-      }}
+      variant={variant || 'primary'}
+      onClick={onClick}
+      css={styled}
+      icon={icon}
+      {...props}
     >
       {children}
     </S.Button>

@@ -5,7 +5,7 @@ export const theme: Theme = {
     main: {
       primary: {
         default: '#ff1c89',
-        hover: '#C3188B'
+        hover: '#D91875'
       },
       accent: '#7C0025'
     },
@@ -22,6 +22,7 @@ export const theme: Theme = {
       150: '#e9ecef'
     },
     dark: {
+      300: '#333333',
       400: '#383838',
       900: '#212121'
     },
@@ -50,6 +51,7 @@ export const theme: Theme = {
     4: '0.25rem',
     8: '0.5rem',
     12: '0.75rem',
+    13: '0.813rem',
     16: '1rem',
     20: '1.25rem',
     24: '1.5rem',
@@ -68,12 +70,14 @@ export const theme: Theme = {
     4: '0.25rem',
     8: '0.5rem',
     12: '0.75rem',
+    14: '0.875rem',
     15: '0.938rem',
     16: '1rem',
     18: '1.125rem',
     20: '1.25rem',
     24: '1.5rem',
     28: '1.75rem',
+    30: '1.875rem',
     32: '2rem',
     36: '2.25rem',
     40: '2.5rem',
@@ -92,5 +96,18 @@ export const theme: Theme = {
     92: '5.75rem',
     96: '6rem',
     100: '6.25rem'
+  },
+  fontWeight: {
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semiBold: 600,
+    bold: 700
+  },
+  bp: {
+    sm: '33.75rem', // 540px
+    md: '50rem', // 800px
+    lg: '62rem', // 992px
+    xl: '75rem' // 1200px;
   }
 };

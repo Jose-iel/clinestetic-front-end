@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body, input, button {
     font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
   }
 
   a, a:hover {
@@ -24,6 +24,11 @@ export const GlobalStyle = createGlobalStyle`
 
   ul {
     list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
   }
 
   body.no-scrollbar::-webkit-scrollbar {

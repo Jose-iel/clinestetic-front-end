@@ -5,11 +5,12 @@ import {
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
 
-const { radii, space, colors, fontSizes } = theme;
+const { radii, space, colors, fontSizes, bp } = theme;
 
 export const Header = styled.div`
   color: ${colors?.typography[700]};
   padding: ${space && space[20]} 0;
+
   #brand {
     font-size: ${fontSizes && fontSizes[32]};
     font-weight: 800;
@@ -20,9 +21,11 @@ export const NavbarLinks = styled.nav`
   display: flex;
   justify-content: center;
   flex: 1 0 40%;
+
   ul {
     gap: ${space && space[4]};
     display: flex;
+
     a {
       display: flex;
       align-items: center;
@@ -43,14 +46,16 @@ export const HeaderDesktop = styled.div`
   align-items: center;
   gap: 1rem;
   width: 80%;
-  @media (max-width: 992px) {
+
+  @media (max-width: ${bp?.lg}) {
     display: none;
   }
 `;
 
 export const HeaderMobile = styled.div`
   display: none;
-  @media (max-width: 992px) {
+
+  @media (max-width: ${bp?.lg}) {
     display: flex;
   }
 `;
@@ -66,11 +71,13 @@ export const Content = styled(DropdownMenuContent)`
 export const Item = styled(DropdownMenuItem)`
   padding: 0.5rem;
   color: ${colors?.typography[700]};
+
   &:hover {
     background-color: ${colors?.light[150]};
     border-radius: 4px;
     color: ${colors?.main.primary.default};
   }
+
   a {
     display: flex;
     align-items: center;

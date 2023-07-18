@@ -1,16 +1,18 @@
-import { ICard } from './interfaces';
+import { ReactNode } from 'react';
+
+import { StyledProps } from 'styles/interfaces';
+
 import * as S from './style';
 
-export default function Card({ options, children }: ICard) {
-  const op = options;
+export interface ICard {
+  pill?: boolean;
+  styled?: StyledProps;
+  children: ReactNode;
+}
 
+export default function Card({ pill, styled, children }: ICard) {
   return (
-    <S.Card
-      options={{
-        rounded: op?.rounded,
-        css: op?.css
-      }}
-    >
+    <S.Card pill={pill} css={styled}>
       {children}
     </S.Card>
   );
