@@ -12,7 +12,18 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true
   },
-  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts']
+  pageExtensions: [
+    'page.tsx',
+    'page.ts',
+    'page.jsx',
+    'page.js',
+    'mdx',
+    'md',
+    'jsx',
+    'js',
+    'tsx',
+    'ts'
+  ]
 };
 
 module.exports = nextConfig;
