@@ -7,14 +7,14 @@ import * as CSS from 'styles/components/notFound';
 import { Container } from 'styles/layout';
 import { useNavigateTo } from 'utilities/navigate';
 
-import { NotFound, NotFoundContainer } from './style';
+import * as S from './style';
 
 export function NotFoundPage() {
   const navigateToLogin = useNavigateTo('/');
 
   return (
     <>
-      <NotFound>
+      <S.NotFound>
         <Container>
           <Heading
             primary={{
@@ -24,13 +24,13 @@ export function NotFoundPage() {
             }}
           />
           <Text>Não conseguimos nos conectar com a página que procura.</Text>
-          <NotFoundContainer>
+          <S.NotFoundContainer>
             <Button onClick={() => navigateToLogin()}>
               Voltar para a Home
             </Button>
-          </NotFoundContainer>
+          </S.NotFoundContainer>
         </Container>
-      </NotFound>
+      </S.NotFound>
     </>
   );
 }
