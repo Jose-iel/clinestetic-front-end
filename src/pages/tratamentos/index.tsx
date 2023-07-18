@@ -9,7 +9,7 @@ import { treatment } from 'utilities/data';
 
 import * as S from './style';
 
-export default function Treatments() {
+export function Treatments() {
   return (
     <>
       <Container>
@@ -65,3 +65,5 @@ export default function Treatments() {
     </>
   );
 }
+
+export default Treatments;

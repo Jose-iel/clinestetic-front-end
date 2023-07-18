@@ -13,7 +13,7 @@ import { useNavigateTo } from 'utilities/navigate';
 
 import * as S from './style';
 
-export default function Login() {
+export function Login() {
   const navigateToLogin = useNavigateTo('/login');
   const formik = useFormik(formLoginData);
 
@@ -74,3 +74,5 @@ export default function Login() {
     </S.LoginContainer>
   );
 }
+
+export default Login;

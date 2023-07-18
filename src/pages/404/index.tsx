@@ -9,7 +9,7 @@ import { useNavigateTo } from 'utilities/navigate';
 
 import * as S from './style';
 
-export default function NotFoundPage() {
+export function NotFoundPage() {
   const navigateToLogin = useNavigateTo('/');
 
   return (
@@ -34,3 +34,5 @@ export default function NotFoundPage() {
     </>
   );
 }
+
+export default NotFoundPage;

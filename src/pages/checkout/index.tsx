@@ -14,7 +14,7 @@ import { theme } from 'styles/theme';
 
 import * as S from './style';
 
-export default function Checkout() {
+export function Checkout() {
   const { colors, space } = theme;
 
   return (
@@ -165,3 +165,5 @@ export default function Checkout() {
     </>
   );
 }
+
+export default Checkout;

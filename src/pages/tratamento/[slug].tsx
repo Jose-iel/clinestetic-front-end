@@ -10,7 +10,7 @@ import * as CSS from 'styles/components/treatment';
 import { Container } from 'styles/layout';
 import { treatment } from 'utilities/data';
 
-export default function Treatment() {
+export function Treatment() {
   return (
     <>
       <Container>
@@ -97,3 +97,5 @@ export default function Treatment() {
     </>
   );
 }
+
+export default Treatment;
