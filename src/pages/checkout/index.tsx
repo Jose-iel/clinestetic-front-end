@@ -10,9 +10,8 @@ import Location from 'media/icons/Location';
 import { css } from 'styled-components';
 import * as CSS from 'styles/components/checkout';
 import { Container } from 'styles/layout';
+import * as S from 'styles/pages/checkout/style';
 import { theme } from 'styles/theme';
-
-import * as S from './style';
 
 export function Checkout() {
   const { colors, space } = theme;

@@ -44,7 +44,6 @@ export default function Home() {
               label={{
                 content: 'Procedimento'
               }}
-              type="select"
               select={{
                 options: [{ value: 'Opção 1', label: 'Opção 1' }]
               }}

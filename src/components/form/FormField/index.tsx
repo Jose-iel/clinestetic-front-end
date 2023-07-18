@@ -113,7 +113,6 @@ export default function FormField({
           value={selectedOptions}
           classNamePrefix="react-select"
           css={select?.styledSelect}
-          {...formik?.getFieldProps(`${id}`)}
           {...props}
         />
       )}

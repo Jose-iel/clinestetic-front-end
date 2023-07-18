@@ -5,9 +5,8 @@ import FormField from 'components/form/FormField';
 import Products from 'components/groups/Products';
 import * as CSS from 'styles/components/treatments';
 import { Container } from 'styles/layout';
+import * as S from 'styles/pages/tratamentos/style';
 import { treatment } from 'utilities/data';
-
-import * as S from './style';
 
 export function Treatments() {
   return (

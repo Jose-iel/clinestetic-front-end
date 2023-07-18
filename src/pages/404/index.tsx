@@ -5,9 +5,8 @@ import Text from 'components/common/Text';
 import Button from 'components/form/Button';
 import * as CSS from 'styles/components/notFound';
 import { Container } from 'styles/layout';
+import * as S from 'styles/pages/404/style';
 import { useNavigateTo } from 'utilities/navigate';
-
-import * as S from './style';
 
 export function NotFoundPage() {
   const navigateToLogin = useNavigateTo('/');

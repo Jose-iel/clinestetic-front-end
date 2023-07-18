@@ -8,10 +8,9 @@ import { formLoginData } from 'components/form/validate';
 import { useFormik } from 'formik';
 import Link from 'next/link';
 import * as CSS from 'styles/components/login';
+import * as S from 'styles/pages/login/style';
 import { inputError } from 'utilities/input-error';
 import { useNavigateTo } from 'utilities/navigate';
-
-import * as S from './style';
 
 export function Login() {
   const navigateToLogin = useNavigateTo('/login');
