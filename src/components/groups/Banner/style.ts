@@ -6,10 +6,8 @@ import { theme } from 'styles/theme';
 const { colors, bp } = theme;
 
 export const Banner = styled.section<{
-  options: {
-    background?: string;
-    css?: StyledProps;
-  };
+  background?: string;
+  css?: StyledProps;
 }>`
   position: relative;
   height: auto;
@@ -17,9 +15,8 @@ export const Banner = styled.section<{
   overflow: hidden;
   z-index: 0;
   background-color: ${colors?.main.primary.default};
-  background-image: ${({ options }) => `url(${options?.background})`};
-
-  ${({ options }) => options?.css}
+  background-image: ${({ background }) => `url(${background})`};
+  ${({ css }) => css}
 `;
 
 export const Wrap = styled(Container)`
@@ -44,11 +41,7 @@ export const Wrap = styled(Container)`
 export const BannerTextWrap = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 40ch;
-
-  @media (max-width: ${bp?.lg}) {
-    max-width: 42ch;
-  }
+  max-width: 43ch;
 
   @media (max-width: ${bp?.sm}) {
     max-width: 100%;

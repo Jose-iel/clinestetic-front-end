@@ -1,80 +1,67 @@
 import React from 'react';
 
 import Heading from 'components/common/Heading';
+import Text from 'components/common/Text';
 import Button from 'components/form/Button';
-import FieldCustom from 'components/form/FieldCustom';
+import FormField from 'components/form/FormField';
+import { formLoginData } from 'components/form/validate';
+import { useFormik } from 'formik';
 import Link from 'next/link';
-import { css, useTheme } from 'styled-components';
-import { Theme } from 'styles/interfaces';
-import { Container } from 'styles/layout';
-import fetcher from 'utilities/cms';
+import * as CSS from 'styles/components/login';
+import { inputError } from 'utilities/input-error';
 import { useNavigateTo } from 'utilities/navigate';
 
 import * as S from './style';
 
 export default function Login() {
-  const theme: Theme = useTheme();
-  const { colors } = theme;
   const navigateToLogin = useNavigateTo('/login');
+  const formik = useFormik(formLoginData);
+
+  const errors = Object.keys(formik.errors);
+  const password = errors.includes('loginPassword');
+  const email = errors.includes('loginEmail');
 
   return (
-    <Container paddingTop="2rem">
+    <S.LoginContainer>
       <Heading
-        title={{
-          text: 'Acessar conta',
-          css: css`
-            color: ${colors?.dark[400]};
-            border-bottom: 1px solid ${colors?.dark[400]};
-            padding-bottom: 0.5rem;
-          `
+        primary={{
+          content: 'Acessar conta',
+          css: CSS.HeadingLogin
         }}
       />
-      <Container maxWidth="35rem" paddingY="4rem">
-        <form>
-          <FieldCustom
+      <S.LoginFormContainer>
+        <form onSubmit={formik.handleSubmit}>
+          <FormField
             formType="input"
-            options={{
-              labelEnabled: true,
-              input: {
-                id: 'login-email',
-                name: 'login-email',
-                type: 'email',
-                textLabel: '*E-mail',
-                placeholder: 'seuemail@gmail.com',
-                cssLabel: css`
-                  color: ${colors?.dark[400]};
-                `
-              }
+            id="loginEmail"
+            name="loginEmail"
+            type="email"
+            placeholder="seuemail@gmail.com"
+            formik={formik}
+            label={{
+              content: '*E-mail',
+              css: CSS.Label
             }}
+            styledInput={inputError(email && formik?.touched.loginEmail)}
           />
-          <FieldCustom
+          <FormField
             formType="input"
-            options={{
-              labelEnabled: true,
-              input: {
-                id: 'login-password',
-                name: 'login-password',
-                type: 'password',
-                textLabel: '*Senha',
-                placeholder: 'Insira sua senha',
-                cssLabel: css`
-                  color: ${colors?.dark[400]};
-                `
-              }
+            id="loginPassword"
+            name="loginPassword"
+            type="password"
+            placeholder="Insira sua senha"
+            formik={formik}
+            label={{
+              content: '*Senha',
+              css: CSS.Label
             }}
+            styledInput={inputError(password && formik?.touched.loginPassword)}
           />
           <S.Register>
-            <span>
+            <Text as="span">
               Não tem cadastro? <Link href="#">Cadastre-se</Link>
-            </span>
-            <Button
-              options={{
-                width: '8rem',
-                variant: 'primary'
-              }}
-              hasIcon={false}
-              onClick={() => navigateToLogin()}
-            >
+            </Text>
+            <Button styled={CSS.Button} onClick={() => navigateToLogin()}>
               Login
             </Button>
           </S.Register>
@@ -83,14 +70,7 @@ export default function Login() {
             <Link href="#">Política de Privacidade</Link>
           </S.Terms>
         </form>
-      </Container>
-    </Container>
+      </S.LoginFormContainer>
+    </S.LoginContainer>
   );
-}
-
-export async function getServerSideProps() {
-  const cms = await fetcher(`${process.env.NEXT_PLUBIC_HOSTNAME}/api/cms`);
-  return {
-    props: { cms }
-  };
 }

@@ -3,10 +3,8 @@ import { ReactNode } from 'react';
 import { StyledProps } from 'styles/interfaces';
 
 export interface IBanner {
-  options: {
-    background: string;
-    contentWidth?: string;
-    css?: StyledProps;
-  };
+  background: string;
+  styled?: StyledProps;
+  contentWidth?: string;
   children: ReactNode;
 }

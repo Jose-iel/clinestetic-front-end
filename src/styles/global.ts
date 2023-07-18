@@ -26,6 +26,11 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
   body.no-scrollbar::-webkit-scrollbar {
     display: none;
   }

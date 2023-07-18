@@ -4,17 +4,11 @@ import { theme } from 'styles/theme';
 
 const { colors, fontSizes, bp } = theme;
 
-type HeadingStyledProps = {
-  size?: string;
-};
-
-export const Title = styled.h1<{
-  options: HeadingStyledProps;
+export const Primary = styled.h1<{
   css?: StyledProps;
 }>`
   color: ${colors?.main.primary.default};
-  font-size: ${({ options: { size } }) =>
-    size ? `${size}` : `${fontSizes && fontSizes[40]}`};
+  font-size: ${fontSizes && fontSizes[40]};
 
   @media (max-width: ${bp?.lg}) {
     font-size: ${fontSizes && fontSizes[32]};
@@ -25,28 +19,13 @@ export const Title = styled.h1<{
   }
 `;
 
-export const Subtitle = styled.h2<{
-  options: HeadingStyledProps;
+export const Secondary = styled.h2<{
   css?: StyledProps;
 }>`
-  color: ${colors?.main.primary.default};
-  font-size: ${({ options: { size } }) =>
-    size ? `${size}` : `${fontSizes && fontSizes[24]}`};
+  color: ${colors?.dark[400]};
+  font-size: ${fontSizes && fontSizes[24]};
 
   @media (max-width: ${bp?.lg}) {
-    font-size: ${fontSizes && fontSizes[18]};
+    font-size: ${fontSizes && fontSizes[20]};
   }
-
-  @media (max-width: ${bp?.sm}) {
-    font-size: ${fontSizes && fontSizes[16]};
-  }
-`;
-
-export const Paragraph = styled.p<{
-  options: HeadingStyledProps;
-  css?: StyledProps;
-}>`
-  color: ${colors?.main.primary.default};
-  font-size: ${({ options: { size } }) =>
-    size ? `${size}` : `${fontSizes && fontSizes[18]}`};
 `;

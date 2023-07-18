@@ -1,34 +1,31 @@
-import { IHeading } from './interfaces';
+import React, { ReactNode } from 'react';
+
+import { StyledProps } from 'styles/interfaces';
+
 import * as S from './style';
 
-export default function Heading({ title, subtitle, paragraph }: IHeading) {
+type HeadingProps = {
+  as?: keyof JSX.IntrinsicElements;
+  content: string | ReactNode;
+  css?: StyledProps;
+};
+
+interface IHeading {
+  primary: HeadingProps;
+  secondary?: HeadingProps;
+}
+
+export default function Heading({ primary, secondary }: IHeading) {
   return (
     <>
-      <S.Title
-        as={title?.as || 'h1'}
-        options={{
-          size: title?.size
-        }}
-        css={title?.css}
-      >
-        {title?.text}
-      </S.Title>
-      <S.Subtitle
-        options={{
-          size: subtitle?.size
-        }}
-        css={subtitle?.css}
-      >
-        {subtitle?.text}
-      </S.Subtitle>
-      <S.Paragraph
-        options={{
-          size: paragraph?.size
-        }}
-        css={paragraph?.css}
-      >
-        {paragraph?.text}
-      </S.Paragraph>
+      <S.Primary as={primary?.as || 'h1'} css={primary?.css}>
+        {primary?.content}
+      </S.Primary>
+      {secondary && (
+        <S.Secondary as={secondary?.as || 'h1'} css={secondary?.css}>
+          {secondary.content}
+        </S.Secondary>
+      )}
     </>
   );
 }

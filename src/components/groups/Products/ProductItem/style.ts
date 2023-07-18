@@ -6,6 +6,11 @@ const { radii, space, colors, fontSizes, bp } = theme;
 
 export const ProductsSection = styled.section`
   padding: 4rem 0;
+
+  a {
+    color: ${colors?.dark[400]};
+    font-weight: 700;
+  }
 `;
 
 export const ProductsWrapper = styled(Container)<{

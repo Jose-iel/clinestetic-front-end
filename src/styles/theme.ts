@@ -51,6 +51,7 @@ export const theme: Theme = {
     4: '0.25rem',
     8: '0.5rem',
     12: '0.75rem',
+    13: '0.813rem',
     16: '1rem',
     20: '1.25rem',
     24: '1.5rem',
@@ -95,6 +96,13 @@ export const theme: Theme = {
     92: '5.75rem',
     96: '6rem',
     100: '6.25rem'
+  },
+  fontWeight: {
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semiBold: 600,
+    bold: 700
   },
   bp: {
     sm: '33.75rem', // 540px

@@ -2,9 +2,9 @@
 import * as React from 'react';
 
 type LocationProps = {
-  fill: string;
-  width: string;
-  height: string;
+  fill?: string;
+  width: string | number;
+  height: string | number;
 };
 
 const Location = ({ fill, width, height, ...props }: LocationProps) => (

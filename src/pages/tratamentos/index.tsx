@@ -1,86 +1,67 @@
 import React from 'react';
 
 import Heading from 'components/common/Heading';
-import FieldCustom from 'components/form/FieldCustom';
+import FormField from 'components/form/FormField';
 import Products from 'components/groups/Products';
-import { ICmsData } from 'pages/interfaces';
-import { css } from 'styled-components';
+import * as CSS from 'styles/components/treatments';
 import { Container } from 'styles/layout';
-import fetcher from 'utilities/cms';
+import { treatment } from 'utilities/data';
 
 import * as S from './style';
 
-export default function Treatments({ cms }: ICmsData) {
+export default function Treatments() {
   return (
     <>
       <Container>
         <Heading
-          title={{
-            text: 'Tratamentos',
-            css: css`
-              margin-bottom: 1rem;
-            `
+          primary={{
+            content: 'Tratamentos',
+            css: CSS.TreatmentHeading
           }}
         />
         <S.FieldsWrapper>
-          <FieldCustom
-            formType="select"
-            options={{
-              select: {
-                id: 'treatments-select',
-                name: 'treatments-select',
-                selectOptions: [
+          <form>
+            <FormField
+              formType="select"
+              id="treatments"
+              name="treatments"
+              placeholder="Bumbum de ouro"
+              select={{
+                options: [
                   {
                     label: 'Opção 1',
                     value: 'Opção 1'
                   }
                 ],
-                placeholder: 'Bumbum de ouro'
-              }
-            }}
-          />
-          <FieldCustom
-            formType="select"
-            options={{
-              select: {
-                id: 'citys-select',
-                name: 'citys-select',
-                selectOptions: [
+                styledSelect: CSS.TreatmentInputForm
+              }}
+            />
+            <FormField
+              formType="select"
+              id="treatmentsCity"
+              name="treatmentsCity"
+              placeholder="São Paulo"
+              select={{
+                options: [
                   {
                     label: 'Opção 1',
                     value: 'Opção 1'
                   }
                 ],
-                placeholder: 'São Paulo'
-              }
-            }}
-          />
-          <FieldCustom
-            formType="input"
-            options={{
-              input: {
-                id: 'neighborhood',
-                name: 'neighborhood',
-                type: 'text',
-                placeholder: 'Bairro'
-              }
-            }}
-          />
+                styledSelect: CSS.TreatmentInputForm
+              }}
+            />
+            <FormField
+              formType="input"
+              id="neighborhood"
+              name="neighborhood"
+              placeholder="Bairro"
+              styledInput={CSS.TreatmentInputForm}
+            />
+          </form>
         </S.FieldsWrapper>
       </Container>
-      <Products
-        products={cms.products?.treatment}
-        options={{
-          columns: 4
-        }}
-      />
+      <Products products={treatment} columns={4} />
     </>
   );
-}
-
-export async function getServerSideProps() {
-  const cms = await fetcher(`${process.env.NEXT_PLUBIC_HOSTNAME}/api/cms`);
-  return {
-    props: { cms }
-  };
 }

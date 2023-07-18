@@ -7,24 +7,22 @@ import { IProducts } from './interfaces';
 import ProductItem from './ProductItem';
 import * as S from './ProductItem/style';
 
-export default function Products({ options, products }: IProducts) {
-  const op = options;
-
+export default function Products({ products, columns, heading }: IProducts) {
   return (
     <S.ProductsSection>
-      {op?.heading && (
+      {heading && (
         <S.Wrapper>
           <Heading
-            title={{
-              text: `${op.heading.text}`
+            primary={{
+              content: `${heading.content}`
             }}
           />
-          {op?.heading?.link && (
-            <Link href={op?.heading?.link.path}>{op?.heading?.link.text}</Link>
+          {heading?.link && (
+            <Link href={heading?.link.path}>{heading?.link.content}</Link>
           )}
         </S.Wrapper>
       )}
-      <S.ProductsWrapper cols={op?.columns}>
+      <S.ProductsWrapper cols={columns}>
         {products?.map((product) => (
           <ProductItem key={product.id} info={product} />
         ))}

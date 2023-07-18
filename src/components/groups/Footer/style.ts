@@ -1,81 +1,147 @@
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
 
-const { space, colors, fontSizes, bp } = theme;
+const { radii, space, colors, fontSizes, bp } = theme;
 
-export const Footer = styled.div`
+export const Footer = styled.footer`
+  border-top: 1px solid ${colors?.light[100]};
+  padding: ${space && space[44]} 0;
   background-color: ${colors?.main.primary.default};
-  padding: 2.75rem 0 4rem 0;
+`;
 
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: ${colors?.light[200]};
-
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: ${colors?.light[200]};
+export const FooterContainer = styled.section`
+  display: flex;
+  padding: 0 ${space && space[16]};
 
   @media (max-width: ${bp?.md}) {
-    padding: 1.5rem 0 2.125rem 0;
+    flex-direction: column;
   }
 `;
 
-export const Logo = styled.img`
-  margin-bottom: ${space && space[16]};
+export const FooterColumnItem = styled.div`
+  flex: 0 1 70%;
 `;
 
-export const SubTitle = styled.p`
-  font-size: ${fontSizes && fontSizes[12]};
-  color: ${colors?.light[100]};
-  margin-bottom: ${space && space[8]};
+export const FooterLogo = styled.div`
+  margin-bottom: ${space && space[32]};
 `;
 
-export const Icon = styled.img`
-  margin-right: ${space && space[16]};
+export const FooterSocial = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: ${space && space[32]};
+  margin: 0;
+  padding: 0;
 `;
 
-export const MenuTitle = styled.p`
-  font-size: ${fontSizes && fontSizes[16]};
-  color: ${colors?.main.accent};
-  margin-bottom: ${space && space[8]};
-`;
+export const FooterSocialLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: ${radii && radii[52]};
+  background-color: ${colors?.light[100]};
+  transition: all 250ms;
+  &:hover {
+    background-color: ${colors?.main.primary.hover};
 
-export const Links = styled.a`
-  font-size: ${fontSizes && fontSizes[12]};
-  color: ${colors?.light[100]};
-  margin-bottom: ${space && space[8]};
-  cursor: pointer;
+    svg {
+      color: ${colors?.light[100]};
+    }
+  }
 
-  :hover {
-    color: ${colors?.main.accent};
+  svg {
+    color: ${colors?.main.primary.default};
+    transition: all 250ms;
   }
 `;
 
-export const SocialIcon = styled.img``;
-
-export const BottomFooter = styled.div`
-  justify-content: space-between;
-  background-color: ${colors?.main.primary.default};
-  padding: 2rem 0 2rem 0;
+export const FooterNavContainer = styled.div`
+  display: flex;
+  gap: ${space && space[60]};
 
   @media (max-width: ${bp?.md}) {
-    padding: 1.5rem 0 2.125rem 0;
+    margin-top: ${space && space[32]};
+  }
+
+  @media (max-width: ${bp?.md}) {
+    gap: ${space && space[32]};
   }
 `;
 
-export const Copy = styled.p`
-  font-size: ${fontSizes && fontSizes[12]};
-  color: ${colors?.light[100]};
-  margin-top: ${space && space[4]};
+export const FooterNavColumnItem = styled.div`
+  h3 {
+    color: ${colors?.main.accent};
+    margin-bottom: ${space && space[24]};
+  }
 `;
 
-export const BottomLinks = styled.a`
-  font-size: ${fontSizes && fontSizes[12]};
-  color: ${colors?.light[100]};
-  margin-bottom: ${space && space[8]};
-  cursor: pointer;
+export const FooterLinksItem = styled.ul`
+  li {
+    margin-bottom: ${space && space[16]};
+  }
 
-  :hover {
-    color: ${colors?.main.accent};
+  a {
+    font-size: ${fontSizes && fontSizes[14]};
+    color: ${colors?.light[100]};
+    transition: all 250ms;
+    &:hover {
+      color: ${colors?.main.accent};
+    }
+  }
+`;
+
+export const FooterContact = styled.div`
+  span {
+    display: block;
+    font-size: ${fontSizes && fontSizes[14]};
+    color: ${colors?.light[100]};
+    margin-bottom: ${space && space[8]};
+
+    @media (max-width: ${bp?.sm}) {
+      margin-bottom: ${space && space[12]};
+      font-size: ${fontSizes && fontSizes[12]};
+    }
+  }
+`;
+
+export const FooterCopyRight = styled.div`
+  border-top: 1px solid ${colors?.light[100]};
+  margin-top: ${space && space[32]};
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    padding: ${space && space[32]} ${space && space[16]} 0;
+
+    p {
+      color: ${colors?.light[100]};
+    }
+
+    @media (max-width: ${bp?.sm}) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+`;
+
+export const FooterCopyRightLink = styled.div`
+  display: flex;
+  gap: ${space && space[24]};
+
+  a {
+    display: block;
+    color: ${colors?.light[100]};
+    transition: all 250ms;
+    &:hover {
+      color: ${colors?.main.accent};
+    }
+
+    @media (max-width: ${bp?.sm}) {
+      margin: ${space && space[12]} auto 0;
+      font-size: ${fontSizes && fontSizes[14]};
+      justify-content: center;
+    }
   }
 `;

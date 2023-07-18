@@ -1,6 +1,7 @@
+import Text from 'components/common/Text';
 import Button from 'components/form/Button';
 import Location from 'media/icons/Location';
-import { useTheme } from 'styled-components';
+import { css, useTheme } from 'styled-components';
 import { Theme } from 'styles/interfaces';
 import { formatCurrency } from 'utilities/format-currency';
 
@@ -17,24 +18,23 @@ export default function ProductItem({ info }: IProductItem) {
   return (
     <S.ProductItem>
       <S.Location>
-        <Location fill={colors?.dark[300]} height={22} width={22} />
-        <span>{info.location}</span>
+        <Location fill={colors?.dark[300] || ''} height={22} width={22} />
+        <Text as="span">{info.location}</Text>
       </S.Location>
       <S.Image src={info.img.src} alt={info.img.alt} />
       <S.Title>{info.title}</S.Title>
       <S.Description>{info.description}</S.Description>
       <S.Price>
-        <span>R$</span> {formatCurrency(info.price)}
+        <Text as="span">R$</Text> {formatCurrency(info.price)}
       </S.Price>
       <S.Installments>
         ou {info.installments}x de R$ {formatCurrency(installmentsValue)} com
         juros
       </S.Installments>
       <Button
-        options={{
-          width: '100%'
-        }}
-        hasIcon={false}
+        styled={css`
+          width: 100%;
+        `}
       >
         Detalhes
       </Button>

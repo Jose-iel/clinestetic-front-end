@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import {
   AiOutlineShoppingCart,
   AiOutlineSearch,
@@ -8,27 +7,24 @@ import { BsChevronDown } from 'react-icons/bs';
 
 import Dropdown from 'components/common/Dropdown';
 import Button from 'components/form/Button';
-import FieldCustom from 'components/form/FieldCustom';
-import DataContext from 'contexts/data.context';
+import FormField from 'components/form/FormField';
 import Link from 'next/link';
-import { IResponseCms } from 'pages/interfaces';
 import { useTheme } from 'styled-components';
+import * as CSS from 'styles/components/header';
 import { Theme } from 'styles/interfaces';
 import { Box, Container } from 'styles/layout';
 import { useNavigateTo } from 'utilities/navigate';
 
+import { header } from './data';
 import * as S from './style';
 import { renderIcon } from './utilities';
-
 export default function Header() {
-  const cms = useContext<IResponseCms>(DataContext);
   const theme: Theme = useTheme();
   const navigateToLogin = useNavigateTo('/login');
 
-  if (!cms) return null;
-
   const { colors } = theme;
 
+  // TODO: Desenvolver login através do backend (variável temporária)
   const user = false;
 
   return (
@@ -41,27 +37,19 @@ export default function Header() {
             </Link>
           </Box>
           <S.HeaderDesktop>
-            <FieldCustom
-              formType="input"
-              options={{
-                input: {
-                  id: 'search',
-                  name: 'search',
-                  type: 'text',
-                  placeholder: 'Encontre o tratamento',
-                  variant: 'primary',
-                  rounded: true,
-                  iconPosition: 'right',
-                  marginWrapper: '0rem',
-                  iconElement: (
-                    <AiOutlineSearch size={18} color={colors?.dark[400]} />
-                  )
-                }
-              }}
+            <FormField
+              id="search"
+              name="search"
+              type="text"
+              placeholder="Encontre o tratamento"
+              icon={<AiOutlineSearch size={18} color={colors?.dark[400]} />}
+              iconPosition="right"
+              styledInput={CSS.HeaderInput}
+              pill
             />
             <S.NavbarLinks>
               <ul>
-                {cms.header?.map((item) => {
+                {header?.map((item) => {
                   return item.submenu ? (
                     <Dropdown
                       key={item.id}
@@ -100,36 +88,22 @@ export default function Header() {
             </S.NavbarLinks>
             <Box display="flex" alignItems="center" gridGap={12}>
               <Button
-                options={{
-                  width: '8rem',
-                  variant: 'primary'
-                }}
-                hasIcon={false}
                 onClick={() => navigateToLogin()}
+                styled={CSS.HeaderButtonLogin}
               >
                 Login
               </Button>
               <Button
-                options={{
-                  variant: 'secondary',
-                  width: '3.2rem',
-                  height: '3.2rem'
-                }}
-                hasIcon={true}
+                variant="secondary"
+                styled={CSS.HeaderButtonCart}
+                icon={true}
               >
                 <AiOutlineShoppingCart size={26} />
               </Button>
             </Box>
           </S.HeaderDesktop>
           <S.HeaderMobile>
-            <Button
-              options={{
-                variant: 'primary',
-                width: '3rem',
-                height: '3rem'
-              }}
-              hasIcon={true}
-            >
+            <Button styled={CSS.HeaderButtonMobile} icon={true}>
               <AiOutlineMenu size={24} />
             </Button>
           </S.HeaderMobile>

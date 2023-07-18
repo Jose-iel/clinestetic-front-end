@@ -1,5 +1,6 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import styled from 'styled-components';
+import { StyledProps } from 'styles/interfaces';
 import { theme } from 'styles/theme';
 
 const { colors, space, radii, fontSizes, bp } = theme;
@@ -40,7 +41,9 @@ export const FaqAccordion = styled.div`
   }
 `;
 
-export const AccordionItem = styled(Accordion.Item)`
+export const AccordionItem = styled(Accordion.Item)<{
+  css?: StyledProps;
+}>`
   margin-bottom: 1rem;
   overflow: hidden;
 `;
@@ -76,6 +79,17 @@ export const AccordionTrigger = styled(Accordion.Trigger)<{
       color: ${colors?.light[100]};
     }
   }
+
+  @media (max-width: ${bp?.sm}) {
+    padding: ${space && space[16]};
+    gap: ${space && space[4]};
+  }
+`;
+
+export const AccordionTitle = styled.h4`
+  @media (max-width: ${bp?.sm}) {
+    font-size: ${fontSizes && fontSizes[14]};
+  }
 `;
 
 export const AccordionContent = styled(Accordion.Content)`
@@ -88,5 +102,9 @@ export const AccordionContent = styled(Accordion.Content)`
 
   b {
     color: ${colors?.main.primary.default};
+  }
+
+  @media (max-width: ${bp?.sm}) {
+    padding: ${space && space[16]};
   }
 `;

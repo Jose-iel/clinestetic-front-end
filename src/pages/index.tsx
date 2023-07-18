@@ -1,216 +1,148 @@
 import Card from 'components/common/Card';
 import Heading from 'components/common/Heading';
+import Text from 'components/common/Text';
 import Button from 'components/form/Button';
-import FieldCustom from 'components/form/FieldCustom';
+import FormField from 'components/form/FormField';
 import Banner from 'components/groups/Banner';
 import { BannerTextWrap } from 'components/groups/Banner/style';
 import Products from 'components/groups/Products';
 import Faq from 'components/pages/home/Faq';
-import { useTheme } from 'styled-components';
-import * as css from 'styles//components/banners.component';
-import { Theme } from 'styles/interfaces';
-import fetcher from 'utilities/cms';
+import * as CSS from 'styles/components/banners';
+import { topSelling, treatment } from 'utilities/data';
 
-import { ICmsData } from './interfaces';
-
-export default function Home({ cms }: ICmsData) {
-  const theme: Theme = useTheme();
-  const { fontSizes } = theme;
-
+export default function Home() {
   return (
     <>
       <Banner
-        options={{
-          contentWidth: '68.75rem',
-          background: `${cms.home?.banners?.intro.image}`,
-          css: css.bannerIntro
-        }}
+        contentWidth="68.75rem"
+        background="/img/home/girl-background-carousel.svg"
+        styled={CSS.Intro}
       >
         <BannerTextWrap>
           <Heading
-            title={{
-              text: `${cms.home?.banners?.intro.title}`,
-              css: css.headingIntroTitle
+            primary={{
+              content: `Somos a Clinestetic`,
+              css: CSS.IntroTitle
             }}
-            subtitle={{
-              text: `${cms.home?.banners?.intro.subtitle}`,
-              css: css.headingIntroSubtitle
-            }}
-            paragraph={{
-              text: `${cms.home?.banners?.intro.paragraph}`,
-              css: css.headingIntroParagraph
+            secondary={{
+              content: `Sistema que te proporciona uma ampliação de beleza e bem estar mais perto de você.`,
+              css: CSS.IntroSubtitle
             }}
           />
+          <Text styled={CSS.IntroText}>
+            Nosso objetivo de promover a saúde e o bem-estar físico e estético
+            mais!
+          </Text>
         </BannerTextWrap>
-        <Card
-          options={{
-            rounded: false,
-            css: css.cardIntro
-          }}
-        >
+        <Card styled={CSS.IntroCard}>
           <form>
-            <FieldCustom
+            <FormField
               formType="select"
-              options={{
-                labelEnabled: true,
-                select: {
-                  id: 'procedures',
-                  name: 'procedures',
-                  placeholder: 'Selecionar',
-                  textLabel: 'Procedimento',
-                  selectOptions: [{ value: 'Opção 1', label: 'Opção 1' }]
-                }
+              id="procedure"
+              name="procedure"
+              placeholder="Selecionar"
+              label={{
+                content: 'Procedimento'
+              }}
+              type="select"
+              select={{
+                options: [{ value: 'Opção 1', label: 'Opção 1' }]
               }}
             />
-            <FieldCustom
+            <FormField
               formType="input"
-              options={{
-                labelEnabled: true,
-                input: {
-                  id: 'city',
-                  name: 'city',
-                  type: 'text',
-                  placeholder: 'São Paulo',
-                  textLabel: 'Cidade',
-                  rounded: false
-                }
+              id="city"
+              name="city"
+              label={{
+                content: 'Cidade'
               }}
+              placeholder="São Paulo"
+              type="text"
             />
-            <FieldCustom
+            <FormField
               formType="input"
-              options={{
-                labelEnabled: true,
-                input: {
-                  id: 'neighborhood',
-                  name: 'neighborhood',
-                  type: 'text',
-                  placeholder: 'Moca',
-                  textLabel: 'Bairro',
-                  rounded: false
-                }
+              id="neighborhood"
+              name="neighborhood"
+              label={{
+                content: 'Bairro'
               }}
+              placeholder="São Paulo"
+              type="text"
             />
-            <Button
-              options={{
-                width: '100%'
-              }}
-              hasIcon={false}
-            >
-              Buscar
-            </Button>
+            <Button styled={CSS.IntroButton}>Buscar</Button>
           </form>
         </Card>
       </Banner>
       <Products
-        products={cms.products?.topSelling}
-        options={{
-          columns: 3,
-          heading: {
-            text: 'Os mais vendidos'
-          }
+        products={topSelling}
+        columns={3}
+        heading={{
+          content: `Os mais vendidos`
         }}
       />
       <Banner
-        options={{
-          contentWidth: '68.75rem',
-          background: `${cms.home?.banners?.evaluation.image}`,
-          css: css.bannerEvaluation
-        }}
+        contentWidth="68.75rem"
+        background="/img/home/agende-avaliacao.svg"
+        styled={CSS.Evaluation}
       >
         <BannerTextWrap>
           <Heading
-            title={{
+            primary={{
               as: 'h3',
-              size: `${fontSizes && fontSizes[15]}`,
-              text: `${cms.home?.banners?.evaluation.title}`,
-              css: css.headingEvaluationTitle
+              content: 'AVALIAÇÃO GRATUITA',
+              css: CSS.EvaluationTitle
             }}
-            subtitle={{
-              size: `${fontSizes && fontSizes[52]}`,
-              text: `${cms.home?.banners?.evaluation.subtitle}`,
-              css: css.headingEvaluationSubtitle
+            secondary={{
+              content: 'Agende uma avaliação',
+              css: CSS.EvaluationSubtitle
             }}
           />
         </BannerTextWrap>
-        <Card
-          options={{
-            rounded: false,
-            css: css.cardEvaluation
-          }}
-        >
+        <Card styled={CSS.EvaluationCard}>
           <form>
-            <FieldCustom
+            <FormField
               formType="select"
-              options={{
-                labelEnabled: true,
-                select: {
-                  id: 'procedures-evaluation',
-                  name: 'procedures-evaluation',
-                  placeholder: 'Selecionar',
-                  textLabel: 'Procedimento',
-                  selectOptions: [{ value: 'Opção 1', label: 'Opção 1' }]
-                }
+              label={{
+                content: 'Procedimento'
+              }}
+              id="procedures-evaluation"
+              name="procedures-evaluation"
+              placeholder="Selecionar"
+              variant="primary"
+              select={{
+                options: [{ value: 'Opção 1', label: 'Opção 1' }]
               }}
             />
-            <FieldCustom
+            <FormField
+              id="city"
+              name="city"
+              type="text"
+              placeholder="Cidade"
               formType="input"
-              options={{
-                labelEnabled: false,
-                input: {
-                  id: 'city',
-                  name: 'city',
-                  type: 'text',
-                  placeholder: 'Cidade',
-                  rounded: false
-                }
-              }}
             />
-            <FieldCustom
+            <FormField
+              id="cellphone"
+              name="cellphone"
+              type="text"
+              placeholder="Celular"
               formType="input"
-              options={{
-                labelEnabled: false,
-                input: {
-                  id: 'neighborhood',
-                  name: 'neighborhood',
-                  type: 'text',
-                  placeholder: 'Celular',
-
-                  rounded: false
-                }
-              }}
             />
-            <Button
-              options={{
-                width: '100%'
-              }}
-              hasIcon={false}
-            >
-              Buscar
-            </Button>
+            <Button styled={CSS.EvaluationButton}>Buscar</Button>
           </form>
         </Card>
       </Banner>
       <Products
-        products={cms.products?.treatment}
-        options={{
-          columns: 4,
-          heading: {
-            text: 'Tratamentos',
-            link: {
-              text: 'Ver tudo',
-              path: '/tratamentos'
-            }
+        products={treatment}
+        columns={4}
+        heading={{
+          content: 'Tratamentos',
+          link: {
+            content: 'Ver tudo',
+            path: '/tratamentos'
           }
         }}
       />
       <Faq />
     </>
   );
-}
-
-export async function getServerSideProps() {
-  const cms = await fetcher(`${process.env.NEXT_PLUBIC_HOSTNAME}/api/cms`);
-  return {
-    props: { cms }
-  };
 }

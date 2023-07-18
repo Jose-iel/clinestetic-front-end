@@ -13,14 +13,12 @@ export type ProductsProps = {
 
 export interface IProducts {
   products?: ProductsProps[];
-  options?: {
-    columns: number;
-    heading?: {
-      text: string;
-      link?: {
-        text: string;
-        path: string;
-      };
+  columns: number;
+  heading?: {
+    content: string;
+    link?: {
+      content: string;
+      path: string;
     };
   };
 }

@@ -1,12 +1,11 @@
 import { css } from 'styled-components';
 import { theme } from 'styles/theme';
 
-import { StyledProps } from '../interfaces';
-
 const { colors, fontSizes, bp } = theme;
 
-export const headingOfferTitle: StyledProps = css`
+export const OfferTitle = css`
   color: ${colors?.light[100]};
+  font-size: ${fontSizes && fontSizes[15]};
   font-weight: 400;
   margin-bottom: 0.5rem;
   letter-spacing: 3px;
@@ -16,8 +15,9 @@ export const headingOfferTitle: StyledProps = css`
   }
 `;
 
-export const headingOfferSubtitle: StyledProps = css`
+export const OfferSubtitle = css`
   color: ${colors?.light[100]};
+  font-size: ${fontSizes && fontSizes[36]};
   max-width: 10ch;
 
   @media (max-width: ${bp?.lg}) {
@@ -31,7 +31,7 @@ export const headingOfferSubtitle: StyledProps = css`
   }
 `;
 
-export const cardOffer: StyledProps = css`
+export const OfferCard = css`
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -46,7 +46,13 @@ export const cardOffer: StyledProps = css`
   }
 `;
 
-export const buttonOffer: StyledProps = css`
+export const OfferInput = css`
+  margin-bottom: 0;
+`;
+
+export const OfferButton = css`
+  width: 10rem;
+
   @media (max-width: ${bp?.sm}) {
     width: 100%;
   }

@@ -1,7 +1,17 @@
 import styled from 'styled-components';
+import { Container } from 'styles/layout';
 import { theme } from 'styles/theme';
 
-const { colors, fontSizes } = theme;
+const { colors, fontSizes, space } = theme;
+
+export const LoginContainer = styled(Container)`
+  padding-top: ${space && space[32]};
+`;
+
+export const LoginFormContainer = styled(Container)`
+  max-width: 35rem;
+  padding: ${space && space[64]} 0;
+`;
 
 export const Register = styled.div`
   display: flex;
